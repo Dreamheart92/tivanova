@@ -1,0 +1,17 @@
+.user-menu {
+    width: 100%;
+}
+
+.user-menu > li {
+    border-bottom: 1px solid #EEE;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.user-menu > li:hover {
+    background-color: #f8f8f8;
+}
+
+.user-menu > li:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,28 @@
+.label {
+    position: absolute;
+    pointer-events: none;
+    scale: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+    color: #8f8f8f;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid #b1b1b1;
+    outline: none;
+    padding: 0.5em 0;
+    width: 100%;
+}
+
+.input:focus,
+.input:hover {
+    border-bottom-color: black;
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+    transform: translateY(-150%) translateX(-7%);
+    scale: 0.9;
+}

@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    gap: 1em;
+}
+
+.container > div:nth-child(1) {
+    order: 3;
+}
+
+.container > div:nth-child(2) {
+    order: 1;
+}

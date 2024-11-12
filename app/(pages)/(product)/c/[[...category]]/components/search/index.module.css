@@ -1,0 +1,16 @@
+.span {
+    cursor: pointer;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    gap: 0.5em;
+    user-select: none;
+}
+
+.span > p {
+    color: #979797;
+}
+
+.span > p:hover,
+.span > .selected {
+    color: black;
+}

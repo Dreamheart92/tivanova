@@ -1,0 +1,60 @@
+.cart-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    z-index: 1000;
+}
+
+.cart-wrapper:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.cart {
+    position: fixed;
+    right: 0;
+    width: 30em;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    animation: slideIn 0.3s ease-in;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.header {
+    padding: 1em;
+    border-bottom: 1px solid #ededed;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header svg {
+    color: #535353;
+}
+
+.content {
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+.content > *:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.footer {
+}
