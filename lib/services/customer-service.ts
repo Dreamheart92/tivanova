@@ -16,7 +16,7 @@ export const updateProfileService = async (userData: UserData) => {
 
     if (session) {
         try {
-            const {data, errors} = await client.request(`
+            const {data} = await client.request(`
     mutation customerUpdate($customer: CustomerUpdateInput!, $customerAccessToken: String!) {
   customerUpdate(customer: $customer, customerAccessToken: $customerAccessToken) {
     customer {
@@ -43,6 +43,7 @@ export const updateProfileService = async (userData: UserData) => {
                 data: data.customerUpdate.customer,
             }
         } catch (error) {
+            console.log(error);
 // TODO : Handle error
             return {
                 success: false,

@@ -71,13 +71,14 @@ export const fetchWishlist = async (accessToken: string) => {
             return [];
         }
     } catch (error) {
+        console.log(error);
         // TODO : Handle error
     }
 }
 
 export const fetchWishlistProducts = async (wishlist: string[]): Promise<FeaturedProduct[]> => {
     try {
-        const {data, errors} = await client.request(`query MyQuery {
+        const {data} = await client.request(`query MyQuery {
     nodes(ids: ${JSON.stringify(wishlist)}) {
       ... on Product {
         id
@@ -101,6 +102,7 @@ export const fetchWishlistProducts = async (wishlist: string[]): Promise<Feature
 
         return data.nodes;
     } catch (error) {
+        console.log(error);
 // TODO : Handle error
         return [];
     }

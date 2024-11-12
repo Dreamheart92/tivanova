@@ -2,7 +2,7 @@
 
 import {z} from 'zod';
 import {updateProfileService} from "@/lib/services/customer-service";
-import {deleteSession, getSession, setSession, updateUserSession} from "@/lib/session";
+import {getSession, updateUserSession} from "@/lib/session";
 import {redirect} from "next/navigation";
 import {isRedirectError} from "next/dist/client/components/redirect";
 import {ChangePasswordState, UpdateProfileState} from "@/app/(pages)/(account)/lib/definitions";

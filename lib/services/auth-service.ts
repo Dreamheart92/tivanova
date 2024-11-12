@@ -26,7 +26,7 @@ export const createUserAccessToken = async (email: string, password: string) => 
 }
 
 export const deleteUserAccessToken = async (accessToken: string) => {
-    const {data, errors} = await client.request(`mutation {
+    await client.request(`mutation {
   customerAccessTokenDelete(customerAccessToken: "${accessToken}") {
     deletedAccessToken
     deletedCustomerAccessTokenId

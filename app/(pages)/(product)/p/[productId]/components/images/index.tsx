@@ -2,7 +2,6 @@ import Box from "@/components/box";
 import styles from "@/app/(pages)/(product)/p/[productId]/components/product/index.module.css";
 import Image from "next/image";
 import {ProductImage as ProductImageType} from "@/lib/definitions";
-import {HeartOutlined} from "@ant-design/icons";
 
 const ProductImage = ({url, width, height}: { url: string, width: number, height: number }) => {
     return (

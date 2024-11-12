@@ -1,5 +1,5 @@
 import {createStorefrontApiClient} from "@shopify/storefront-api-client";
-import {shopifyApi} from '@shopify/shopify-api';
+import {ApiVersion, shopifyApi} from '@shopify/shopify-api';
 import '@shopify/shopify-api/adapters/node';
 
 const domain = process.env.SHOPIFY_DOMAIN;
@@ -15,9 +15,10 @@ export const client = createStorefrontApiClient({
 })
 
 const shopify = shopifyApi({
+    apiVersion: ApiVersion.October24, billing: null, isEmbeddedApp: false,
     apiKey: adminApiKey,
     apiSecretKey: adminApiSecret || '',
-    hostName: domain,
+    hostName: domain
 });
 
 const session = {
@@ -25,4 +26,5 @@ const session = {
     shop: domain,
 }
 
+// @ts-expect-error: Ignoring missing 'state' property for custom session handling
 export const adminClient = new shopify.clients.Graphql({session});

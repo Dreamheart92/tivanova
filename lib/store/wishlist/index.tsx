@@ -28,6 +28,7 @@ export function WishlistProvider({initialState, children}: { initialState: strin
         try {
             await addItemsToWishlistService(updatedWishlist);
         } catch (error) {
+            console.log(error);
             // TODO : Handle error
         }
     }
@@ -45,6 +46,7 @@ export function WishlistProvider({initialState, children}: { initialState: strin
             try {
                 await addItemsToWishlistService(updatedWishlist);
             } catch (error) {
+                console.log(error);
                 // TODO : Handle error
             }
         }

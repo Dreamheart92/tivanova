@@ -63,6 +63,7 @@ function CartProvider({children, cartInitialState}: {
                     })
                 }))
             } catch (error) {
+                console.log(error);
                 setCart((cart) => ({
                     ...cart,
                     products: rollback,
@@ -91,6 +92,7 @@ function CartProvider({children, cartInitialState}: {
             try {
                 await removeItemFromCartService(lineId);
             } catch (error) {
+                console.log(error);
                 setCart((cart) => ({
                     ...cart,
                     products: rollback,
@@ -125,6 +127,7 @@ function CartProvider({children, cartInitialState}: {
         try {
             await updateItemQuantityInCartService(cartLineId, quantity);
         } catch (error) {
+            console.log(error);
             // TODO : Rollback and handle error
         }
     }
