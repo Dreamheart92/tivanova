@@ -1,7 +1,10 @@
+'use client';
+
 import Logo from "@/components/navigation/ui/logo";
 import MainMenu from "@/components/navigation/ui/main-menu";
 import AccountMenu from "@/components/navigation/ui/account-menu";
 import ContentContainer from "@/components/ui/content-container";
+import {useCallback, useEffect, useState} from "react";
 
 type WrapperProps = {
     basis: string;
@@ -24,6 +27,21 @@ const Wrapper = ({basis, justify, children}: WrapperProps) => {
 }
 
 export default function Navigation() {
+    const [scrolling, setScrolling] = useState(false);
+
+    const handleScroll = useCallback(() => {
+        const scrollPosition = window.scrollY;
+        scrollPosition >= 10 ? setScrolling(true) : setScrolling(false);
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
     return (
         <div
             className="absolute w-full top-0 z-20 text-white p-4">
