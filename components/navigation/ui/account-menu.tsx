@@ -15,3 +15,13 @@ const IconWrapper = ({Icon}: IconWrapperProps) => {
     )
 }
 
+export default function AccountMenu() {
+    return (
+        <NavigationMenu className="gap-3">
+            <IconWrapper Icon={Heart}/>
+            <IconWrapper Icon={UserRound}/>
+            <IconWrapper Icon={Search}/>
+            <IconWrapper Icon={ShoppingBag}/>
+        </NavigationMenu>
+    )
+}
