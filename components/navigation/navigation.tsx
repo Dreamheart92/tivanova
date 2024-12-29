@@ -26,18 +26,22 @@ const Wrapper = ({basis, justify, children}: WrapperProps) => {
 export default function Navigation() {
     return (
         <div
-            className="flex absolute w-full top-0 z-20 text-white p-4 justify-between items-center">
-            <Wrapper basis='25'>
-                <MainMenu/>
-            </Wrapper>
+            className="absolute w-full top-0 z-20 text-white p-4">
+            <ContentContainer>
+                <div className="flex items-center">
+                    <Wrapper basis='25'>
+                        <MainMenu/>
+                    </Wrapper>
 
-            <Wrapper basis='50' justify='center'>
-                <Logo/>
-            </Wrapper>
+                    <Wrapper basis='50' justify='center'>
+                        <Logo/>
+                    </Wrapper>
 
-            <Wrapper basis='25' justify='end'>
-                <AccountMenu/>
-            </Wrapper>
+                    <Wrapper basis='25' justify='end'>
+                        <AccountMenu/>
+                    </Wrapper>
+                </div>
+            </ContentContainer>
         </div>
     )
 }
