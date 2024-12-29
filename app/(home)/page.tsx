@@ -1,6 +1,8 @@
 import Hero from "@/app/(home)/components/hero";
-import {fetchLatestProducts} from "@/lib/api/product.api";
+import {fetchLatestCollections, fetchLatestProducts} from "@/lib/api/product.api";
 import FeaturedProducts from "@/components/featured-products";
+import FeaturedCollections from "@/app/(home)/components/featured-collections";
+import FeaturedCollection from "@/app/(home)/components/featured-collection";
 
 const featuredProductSections = {
     newArrivals: {
@@ -14,20 +16,26 @@ const featuredProductSections = {
 }
 
 export default async function Home() {
-    const products = await fetchLatestProducts();
+    const [newArrivals, collections] = await Promise.all([
+        fetchLatestProducts(),
+        fetchLatestCollections(),
+    ])
 
     return (
-        <>
+        <div className='flex flex-col gap-12'>
             <Hero/>
             <FeaturedProducts
-                products={products}
+                products={newArrivals}
                 meta={featuredProductSections.newArrivals}
             />
 
+            <FeaturedCollections collections={collections}/>
+            <FeaturedCollection/>
+
             <FeaturedProducts
-                products={products}
+                products={newArrivals}
                 meta={featuredProductSections.featured}
             />
-        </>
+        </div>
     )
 }
