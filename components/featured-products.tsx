@@ -24,7 +24,7 @@ const SectionMetaData = ({meta}: { meta: Meta }) => {
 export default function FeaturedProducts({products, meta}: FeaturedProductsProps) {
     return (
         <ContentContainer>
-            <div className='py-12'>
+            <div className=''>
                 <SectionMetaData meta={meta}/>
 
                 <div className='flex gap-4'>
