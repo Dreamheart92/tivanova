@@ -17,3 +17,11 @@ export type FeaturedProduct = {
         };
     }
 }
+
+export type CollectionMeta = {
+    title: string;
+    id: string;
+    image: {
+        url: string;
+    }
+}
