@@ -5,6 +5,7 @@ import MainMenu from "@/components/navigation/ui/main-menu";
 import AccountMenu from "@/components/navigation/ui/account-menu";
 import ContentContainer from "@/components/ui/content-container";
 import {useCallback, useEffect, useState} from "react";
+import {cva} from "class-variance-authority";
 
 type WrapperProps = {
     basis: string;
@@ -26,6 +27,18 @@ const Wrapper = ({basis, justify, children}: WrapperProps) => {
     )
 }
 
+const headerStyles = cva(
+    'z-20 w-full top-0 fixed transition-all 0.3s ease-in py-4',
+    {
+        variants: {
+            variant: {
+                static: 'text-white',
+                scrolling: 'text-black bg-white',
+            }
+        }
+    }
+)
+
 export default function Navigation() {
     const [scrolling, setScrolling] = useState(false);
 
@@ -44,7 +57,13 @@ export default function Navigation() {
 
     return (
         <div
-            className="absolute w-full top-0 z-20 text-white p-4">
+            className={headerStyles({
+                variant: scrolling ? 'scrolling' : 'static',
+            })}
+            style={{
+                boxShadow: scrolling ? 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px' : '',
+            }}
+        >
             <ContentContainer>
                 <div className="flex items-center">
                     <Wrapper basis='25'>
