@@ -23,8 +23,8 @@ const navigationItems = {
 
 export default function MainMenu() {
     return (
-        <NavigationMenu>
-            <NavigationMenuList>
+        <NavigationMenu className="">
+            <NavigationMenuList className="gap-4">
                 <MenuItem settings={navigationItems.shop}/>
                 <MenuItem settings={navigationItems.collections}/>
                 <MenuItem settings={navigationItems.about}/>
