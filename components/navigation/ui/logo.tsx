@@ -5,9 +5,9 @@ export default function Logo() {
     return (
         <NavigationMenu>
             <NavigationMenuItem>
-                <Link href='/public' legacyBehavior passHref>
+                <Link href='/' legacyBehavior passHref>
                     <NavigationMenuLink>
-                        <h1>TIVANOVA</h1>
+                        <h1 className="text-[1.5em]">TIVANOVA</h1>
                     </NavigationMenuLink>
                 </Link>
             </NavigationMenuItem>
