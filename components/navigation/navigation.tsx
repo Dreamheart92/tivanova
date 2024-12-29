@@ -1,6 +1,7 @@
 import Logo from "@/components/navigation/ui/logo";
 import MainMenu from "@/components/navigation/ui/main-menu";
 import AccountMenu from "@/components/navigation/ui/account-menu";
+import ContentContainer from "@/components/ui/content-container";
 
 type WrapperProps = {
     basis: string;
@@ -20,18 +21,20 @@ const Wrapper = ({basis, justify, children}: WrapperProps) => {
 
 export default function Navigation() {
     return (
-        <div className="flex border border-stone-300 p-4 justify-between items-center">
-            <Wrapper basis='25'>
-                <MainMenu/>
-            </Wrapper>
+        <ContentContainer>
+            <div className="flex border border-stone-300 p-4 justify-between items-center">
+                <Wrapper basis='25'>
+                    <MainMenu/>
+                </Wrapper>
 
-            <Wrapper basis='50' justify='center'>
-                <Logo/>
-            </Wrapper>
+                <Wrapper basis='50' justify='center'>
+                    <Logo/>
+                </Wrapper>
 
-            <Wrapper basis='25' justify='end'>
-                <AccountMenu/>
-            </Wrapper>
-        </div>
+                <Wrapper basis='25' justify='end'>
+                    <AccountMenu/>
+                </Wrapper>
+            </div>
+        </ContentContainer>
     )
 }
