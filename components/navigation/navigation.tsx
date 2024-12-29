@@ -10,10 +10,14 @@ type WrapperProps = {
 }
 
 const Wrapper = ({basis, justify, children}: WrapperProps) => {
-    const wrapperClasses = `flex basis-[${basis}%] ${justify ? `justify-${justify}` : ''}`;
-
     return (
-        <div className={wrapperClasses}>
+        <div
+            className='flex'
+            style={{
+                flexBasis: `${basis}%`,
+                justifyContent: justify ? justify : '',
+            }}
+        >
             {children}
         </div>
     )
