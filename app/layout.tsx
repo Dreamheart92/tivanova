@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
+import {Geist, Geist_Mono, Afacad} from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation/navigation";
 
@@ -12,6 +12,12 @@ const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
 });
+
+const afacad = Afacad({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+})
+
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -26,7 +32,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${geistSans.variable} ${geistMono.variable} ${afacad.className} antialiased`}
         >
         <Navigation/>
         {children}
