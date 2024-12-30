@@ -22,7 +22,7 @@ export default async function Home() {
     ])
 
     return (
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col gap-4 lg:gap-12'>
             <Hero/>
             <FeaturedProducts
                 products={newArrivals}
