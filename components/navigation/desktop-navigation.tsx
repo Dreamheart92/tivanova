@@ -41,6 +41,7 @@ const headerStyles = cva(
 
 export default function DesktopNavigation() {
     const [scrolling, setScrolling] = useState(false);
+    const [hovered, setHovered] = useState(false);
 
     const handleScroll = useCallback(() => {
         const scrollPosition = window.scrollY;
@@ -58,11 +59,13 @@ export default function DesktopNavigation() {
     return (
         <div
             className={`${headerStyles({
-                variant: scrolling ? 'scrolling' : 'static',
-            })} desktop-navigation`}
+                variant: scrolling || hovered ? 'scrolling' : 'static',
+            })} hidden lg:flex`}
             style={{
                 boxShadow: scrolling ? 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px' : '',
             }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
         >
             <ContentContainer>
                 <div className="flex items-center">
