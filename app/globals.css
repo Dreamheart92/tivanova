@@ -75,33 +75,17 @@ h6 {
     body {
         font-size: 16px;
     }
-
-    .mobile-navigation {
-        display: none;
-    }
 }
 
 @media (max-width: 1280px) {
     body {
         font-size: 14px;
     }
-
-    .mobile-navigation {
-        display: none;
-    }
 }
 
 @media (max-width: 1024px) {
     body {
         font-size: 12px;
-    }
-
-    .desktop-navigation {
-        display: none;
-    }
-
-    .mobile-navigation {
-        display: flex;
     }
 }
 
