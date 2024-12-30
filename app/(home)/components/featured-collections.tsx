@@ -9,7 +9,7 @@ type FeaturedCollectionsProps = {
 export default function FeaturedCollections({collections}: FeaturedCollectionsProps) {
     return (
         <ContentContainer>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 flex-wrap md:flex-nowrap'>
                 {collections.map((collection) => (
                     <CollectionCard key={collection.id} collection={collection}/>
                 ))}
