@@ -12,7 +12,7 @@ export default function ProductCard({product}: ProductCardProps) {
     const [hovered, setIsHovered] = useState(false);
 
     return (
-        <div className="relative cursor-pointer">
+        <div className="relative text-[1.6em] md:text-[1.2em] lg:text-[1em] cursor-pointer basis-[100%] sm:basis-[calc(100%/2-1em)] md:basis-[calc(100%/3-1em)]">
             <div
                 className="relative"
                 onMouseEnter={() => setIsHovered(true)}
@@ -21,13 +21,15 @@ export default function ProductCard({product}: ProductCardProps) {
                 <Image
                     src={product.images.edges[0].node.url}
                     alt={product.title}
-                    width={500}
-                    height={550}
+                    layout="responsive"
+                    width={100}
+                    height={110}
+                    className="max-h-[45rem] sm:max-h-[28rem] md:max-h-[22rem] lg:max-h-[28rem] xl:max-h-[27rem] 2xl:max-h-[35rem]"
                     style={{
                         opacity: hovered ? 0 : 1,
-                        transition: 'all 0.3s ease-in',
+                        transition: 'opacity 0.3s ease-in',
                         objectFit: 'cover',
-                        maxHeight: '550px',
+                        objectPosition: 'center',
                     }}
                 />
 
@@ -37,13 +39,13 @@ export default function ProductCard({product}: ProductCardProps) {
                     fill
                     style={{
                         objectFit: 'cover',
-                        transition: 'all 0.3s ease-in',
+                        transition: 'opacity 0.3s ease-in',
                         opacity: hovered ? 1 : 0,
                     }}
                 />
             </div>
 
-            <div>
+            <div className='py-2 px-1 lg:p-0'>
                 <h4 className='uppercase font-bold'>{product.vendor}</h4>
                 <h5>{product.title}</h5>
                 <p className='font-light'>{Number(product.priceRange.minVariantPrice.amount).toFixed(2)} EUR</p>
