@@ -62,6 +62,10 @@ export default function DesktopNavigation() {
         }
     }, []);
 
+    const headerStyle = headerStyles({
+        variant: isHomePage && (scrolling || hovered) ? 'homePageScrolling' : isHomePage ? 'homePage' : 'default',
+    })
+
     return (
         <div
             className={`${headerStyles({
