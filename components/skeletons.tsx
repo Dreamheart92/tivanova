@@ -29,3 +29,16 @@ export const FeaturedProductsSkeleton = () => {
         </ContentContainer>
     )
 }
+
+export const CollectionCardSkeleton = () => {
+    return (
+        <div>
+            <Skeleton className='h-[40rem] sm:h-[45rem] w-[35em] rounded-none'/>
+
+            <div className='flex justify-center mt-2 flex-col items-center'>
+                <Skeleton className='w-[8em] h-[1em] rounded-none'/>
+                <Skeleton className='w-[24em] h-[1em] mt-2 rounded-none'/>
+            </div>
+        </div>
+    )
+}
