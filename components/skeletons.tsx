@@ -13,3 +13,19 @@ export const ProductCardSkeleton = () => {
         </div>
     )
 }
+
+export const FeaturedProductsSkeleton = () => {
+    return (
+        <ContentContainer>
+            <Skeleton className='w-[8em] h-[1em] mb-4 rounded-none'/>
+            <Skeleton className='w-[24em] h-[1em] mb-4 rounded-none'/>
+
+            <div className='flex flex-wrap gap-4'>
+                <ProductCardSkeleton/>
+                <ProductCardSkeleton/>
+                <ProductCardSkeleton/>
+                <ProductCardSkeleton/>
+            </div>
+        </ContentContainer>
+    )
+}
