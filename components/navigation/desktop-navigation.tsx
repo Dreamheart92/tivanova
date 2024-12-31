@@ -45,6 +45,10 @@ export default function DesktopNavigation() {
     const [scrolling, setScrolling] = useState(false);
     const [hovered, setHovered] = useState(false);
 
+    const path = usePathname();
+
+    const isHomePage = path === '/';
+
     const handleScroll = useCallback(() => {
         const scrollPosition = window.scrollY;
         scrollPosition >= 10 ? setScrolling(true) : setScrolling(false);
