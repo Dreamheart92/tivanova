@@ -16,7 +16,7 @@ export default function ProductCard({product}: ProductCardProps) {
 
     return (
         <div
-            className="relative text-[1.6em] md:text-[1.2em] lg:text-[1em] cursor-pointer basis-[100%] sm:basis-[calc(100%/2-1em)] md:basis-[calc(100%/3-1em)]">
+            className="relative text-[1.6em] md:text-[1.2em] lg:text-[1em] cursor-pointer basis-[100%] sm:basis-[calc(100%/3-1em)] md:basis-[calc(100%/4-1em)]">
             <Link href={PATHS.PRODUCT_DETAILS(getIdFromShopifyString(product.id))}>
                 <div
                     className="relative"
