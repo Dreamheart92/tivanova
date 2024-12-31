@@ -1,23 +1,23 @@
 import {NavigationMenu, NavigationMenuList} from "@/components/ui/navigation-menu";
 import MenuItem from "@/components/navigation/ui/menu-item";
-import {NAVIGATION} from "@/lib/constants/navigation";
+import {PATHS} from "@/lib/constants/paths";
 
 const navigationItems = {
     shop: {
         title: "Shop",
-        href: NAVIGATION.SHOP,
+        href: PATHS.SHOP,
     },
     collections: {
         title: 'Collections',
-        href: NAVIGATION.COLLECTIONS,
+        href: PATHS.COLLECTIONS,
     },
     about: {
         title: 'About',
-        href: NAVIGATION.ABOUT,
+        href: PATHS.ABOUT,
     },
     journal: {
         title: 'Journal',
-        href: NAVIGATION.JOURNAL,
+        href: PATHS.JOURNAL,
     }
 }
 
