@@ -54,3 +54,7 @@ export const FeaturedCollectionsSkeleton = () => {
         </ContentContainer>
     )
 }
+
+const ProductDetailsGallerySkeleton = () => {
+    return <Skeleton className='w-[1000px] h-[93.6vh] rounded-none'/>
+}
