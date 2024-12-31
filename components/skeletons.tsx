@@ -58,3 +58,41 @@ export const FeaturedCollectionsSkeleton = () => {
 const ProductDetailsGallerySkeleton = () => {
     return <Skeleton className='w-[1000px] h-[93.6vh] rounded-none'/>
 }
+
+const ProductDetailsSkeleton = () => {
+    return (
+        <div className='mt-[5em] flex gap-4 flex-col'>
+            <div className='w-full'>
+                <div className='flex justify-between w-full'>
+                    <Skeleton className='w-[12em] h-[1em] rounded-none'/>
+                    <Skeleton className='w-[6em] h-[1em] rounded-none'/>
+                </div>
+                <Skeleton className='w-[6em] h-[1em] rounded-none mt-2'/>
+            </div>
+
+            <div>
+                <Skeleton className='w-[4em] h-[1em] rounded-none mt-2'/>
+                <Skeleton className='w-[5em] h-[2em] mt-2'/>
+            </div>
+
+            <div>
+                <Skeleton className='w-[4em] h-[1em] rounded-none mt-2'/>
+                <Skeleton className='w-full h-[2em] mt-2'/>
+            </div>
+
+            <div className='flex gap-4'>
+                <Skeleton className='basis-4/5 h-[2em] mt-2'/>
+                <Skeleton className='flex-1 h-[2em] mt-2'/>
+            </div>
+
+            <div>
+                <Skeleton className='w-full h-[8em]'/>
+            </div>
+
+            <div>
+                <Skeleton className='w-full h-[5em]'/>
+            </div>
+
+        </div>
+    )
+}
