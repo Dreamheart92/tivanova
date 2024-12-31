@@ -7,19 +7,14 @@ type CollectionCardProps = {
 
 export default function CollectionCard({collection}: CollectionCardProps) {
     return (
-        <div className='cursor-pointer flex flex-col basis-[100%]'>
+        <div className='cursor-pointer'>
             <div>
                 <Image
                     src={collection.image.url}
                     alt={collection.title}
-                    width={100}
+                    width={1000}
                     height={900}
-                    className='max-h-[40rem] sm:max-h-[45rem]'
-                    layout='responsive'
-                    style={{
-                        objectFit: 'cover',
-                    }}
-
+                    className='max-h-[40rem] sm:max-h-[45rem] object-cover w-[35em]'
                 />
             </div>
 
