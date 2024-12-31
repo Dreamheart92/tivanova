@@ -33,8 +33,9 @@ const headerStyles = cva(
     {
         variants: {
             variant: {
-                static: 'text-white',
-                scrolling: 'text-black bg-white',
+                homePage: 'fixed top-0 bg-transparent text-white transition-colors duration-300 ease-in',
+                homePageScrolling: 'bg-white text-black fixed transition-colors duration-300 ease-in',
+                default: 'sticky top-0 bg-white text-black',
             }
         }
     }
