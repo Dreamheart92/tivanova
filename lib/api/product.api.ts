@@ -1,5 +1,5 @@
 import {client} from "@/lib/shopify";
-import {CollectionMeta, FeaturedProduct, Product} from "@/lib/definitions";
+import {CollectionMeta, FeaturedProduct, Filter, Product} from "@/lib/definitions";
 
 export const fetchLatestProducts = async (): Promise<FeaturedProduct[]> => {
     const query = `
@@ -122,4 +122,79 @@ export const fetchFeaturedProducts = async (): Promise<FeaturedProduct[]> => {
     const {data} = await client.request(query);
 
     return data.products.nodes;
+}
+
+export const fetchCatalogueProducts = async (search: {
+    brand?: string,
+    color?: string,
+    size?: string,
+    category?: string
+}): Promise<{
+    products: FeaturedProduct[],
+    filters: Filter[]
+}> => {
+    const searchQuery = Object.values((search)).reduce((a: string[], b: string) => {
+        b.split('|').forEach((query: string) => {
+            a.push(JSON.parse(query));
+        })
+
+        return a;
+    }, [])
+
+    const filtersQuery = `query ($productFilters: [ProductFilter!]) {
+  search(first: 250, productFilters: $productFilters, query: "") {
+    productFilters {
+      label
+      type
+      values {
+        id
+        input
+        label
+        count
+      }
+    }
+  }
+}`;
+
+    const productsQuery =
+        `query ($productFilters: [ProductFilter!]) {
+      search(first: 20, productFilters: $productFilters, query: "", types: PRODUCT) {
+        nodes {
+          ... on Product {
+            id
+            images(first: 2) {
+              edges {
+                node {
+                  url
+                }
+              }
+            }
+            title
+            vendor
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+          }
+        }
+      }
+    }`;
+
+    const {data} = await client.request(productsQuery, {
+        variables: {
+            productFilters: searchQuery,
+        }
+    });
+
+    const {data: filtersData} = await client.request(filtersQuery, {
+        variables: {
+            productFilters: searchQuery,
+        }
+    });
+
+    return {
+        products: data.search.nodes,
+        filters: filtersData.search.productFilters,
+    }
 }
