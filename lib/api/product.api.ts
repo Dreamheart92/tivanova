@@ -49,3 +49,47 @@ export const fetchLatestCollections = async (): Promise<CollectionMeta[]> => {
 
     return data.collections.nodes;
 }
+
+export const fetchProductById = async (productId: string): Promise<Product> => {
+    const query = `
+   query MyQuery {
+  product(id: "gid://shopify/Product/${productId}") {
+    id
+    title
+    descriptionHtml
+    images(first: 4) {
+        edges {
+          node {
+            url
+          }
+        }
+      }
+    priceRange {
+      minVariantPrice {
+        amount
+      }
+    }
+    tags
+    vendor
+    variants(first: 6) {
+      edges {
+        node {
+          id
+          price {
+          amount
+          }
+          selectedOptions {
+            name
+            value
+          }
+        }
+      }
+    }
+  }
+}`
+
+    const {data} = await client.request(query);
+
+    return data.product;
+}
+}
