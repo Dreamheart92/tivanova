@@ -15,6 +15,34 @@ const featuredProductSections = {
     }
 }
 
+const NewArrivalsWrapper = async () => {
+    const newArrivals = await fetchLatestProducts();
+
+    return (
+        <FeaturedProducts
+            products={newArrivals}
+            meta={featuredProductSections.newArrivals}
+        />
+    )
+}
+
+const FeaturedWrapper = async () => {
+    const products = await fetchFeaturedProducts();
+
+    return (
+        <FeaturedProducts
+            products={products}
+            meta={featuredProductSections.newArrivals}
+        />
+    )
+}
+
+const CollectionsWrapper = async () => {
+    const collections = await fetchLatestCollections();
+
+    return <FeaturedCollections collections={collections}/>
+}
+
 export default async function Home() {
     const [newArrivals, collections] = await Promise.all([
         fetchLatestProducts(),
