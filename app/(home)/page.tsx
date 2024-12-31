@@ -1,8 +1,10 @@
 import Hero from "@/app/(home)/components/hero";
-import {fetchLatestCollections, fetchLatestProducts} from "@/lib/api/product.api";
+import {fetchFeaturedProducts, fetchLatestCollections, fetchLatestProducts} from "@/lib/api/product.api";
 import FeaturedProducts from "@/components/featured-products";
 import FeaturedCollections from "@/app/(home)/components/featured-collections";
 import FeaturedCollection from "@/app/(home)/components/featured-collection";
+import {Suspense} from "react";
+import {FeaturedCollectionsSkeleton, FeaturedProductsSkeleton} from "@/components/skeletons";
 
 const featuredProductSections = {
     newArrivals: {
@@ -44,26 +46,23 @@ const CollectionsWrapper = async () => {
 }
 
 export default async function Home() {
-    const [newArrivals, collections] = await Promise.all([
-        fetchLatestProducts(),
-        fetchLatestCollections(),
-    ])
 
     return (
         <div className='flex flex-col gap-4 lg:gap-12'>
             <Hero/>
-            <FeaturedProducts
-                products={newArrivals}
-                meta={featuredProductSections.newArrivals}
-            />
+            <Suspense fallback={<FeaturedProductsSkeleton/>}>
+                <NewArrivalsWrapper/>
+            </Suspense>
 
-            <FeaturedCollections collections={collections}/>
+            <Suspense fallback={<FeaturedCollectionsSkeleton/>}>
+                <CollectionsWrapper/>
+            </Suspense>
+
             <FeaturedCollection/>
 
-            <FeaturedProducts
-                products={newArrivals}
-                meta={featuredProductSections.featured}
-            />
+            <Suspense fallback={<FeaturedProductsSkeleton/>}>
+                <FeaturedWrapper/>
+            </Suspense>
         </div>
     )
 }
