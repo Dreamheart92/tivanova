@@ -96,3 +96,17 @@ const ProductDetailsSkeleton = () => {
         </div>
     )
 }
+
+export const ProductSkeleton = () => {
+    return (
+        <div className='flex w-full'>
+            <div className='basis-[60%]'>
+                <ProductDetailsGallerySkeleton/>
+            </div>
+
+            <div className='basis-[30%]'>
+                <ProductDetailsSkeleton/>
+            </div>
+        </div>
+    )
+}
