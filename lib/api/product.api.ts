@@ -26,6 +26,7 @@ export const fetchLatestProducts = async (): Promise<FeaturedProduct[]> => {
 }
 `;
 
+
     const {data} = await client.request(query);
 
     return data.products.nodes;
@@ -44,6 +45,7 @@ export const fetchLatestCollections = async (): Promise<CollectionMeta[]> => {
     }
   }
 }`;
+
 
     const {data} = await client.request(query);
 
@@ -92,4 +94,32 @@ export const fetchProductById = async (productId: string): Promise<Product> => {
 
     return data.product;
 }
+
+export const fetchFeaturedProducts = async (): Promise<FeaturedProduct[]> => {
+    const query = `
+ query MyQuery {
+  products(first: 4, query: "tag:featured") {
+    nodes {
+      id
+      images(first: 2) {
+        edges {
+          node {
+            url
+          }
+        }
+      }
+      title
+      vendor
+      priceRange {
+        minVariantPrice {
+          amount
+        }
+      }
+    }
+  }
+}`
+
+    const {data} = await client.request(query);
+
+    return data.products.nodes;
 }
