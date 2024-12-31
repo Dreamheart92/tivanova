@@ -4,6 +4,13 @@ export type ProductImage = {
     }
 }
 
+export type Variant = {
+    color: string;
+    price: string;
+    id: string;
+    options: [{ id: string, name: string }];
+}
+
 export type FeaturedProduct = {
     id: string;
     images: {
@@ -23,5 +30,36 @@ export type CollectionMeta = {
     id: string;
     image: {
         url: string;
+    }
+}
+
+export type Product = {
+    id: string;
+    title: string;
+    category: {
+        id: string;
+        name: string;
+    }
+    descriptionHtml: string;
+    images: {
+        edges: ProductImage[]
+    }
+    priceRange: {
+        minVariantPrice: {
+            amount: string;
+        }
+    }
+    tags: string[];
+    vendor: string;
+    variants: {
+        edges: ProductVariant[]
+    }
+}
+
+export type ProductVariant = {
+    node: {
+        id: string;
+        price: string;
+        selectedOptions: { name: string; value: string }[]
     }
 }
