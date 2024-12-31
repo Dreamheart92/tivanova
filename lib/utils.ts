@@ -10,3 +10,11 @@ export const getIdFromShopifyString = (shopifyString: string) => {
   return chunks[chunks.length - 1];
 }
 
+export const resolveImageSize = (index: number) => {
+  const isBetweenOneAndTwo = index >= 1 && index <= 2;
+
+  return {
+    width: isBetweenOneAndTwo ? 500 : 1000,
+    height: isBetweenOneAndTwo ? 750 : 1500,
+  }
+}
