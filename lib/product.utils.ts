@@ -29,3 +29,4 @@ export const organizeProductVariants = (variants: ProductVariant[]): Variant[] =
     return productVariants;
 }
 
+export const findVariantByColor = (variants: Variant[], color: string) =>  variants.find((variant) => variant.color === color);
