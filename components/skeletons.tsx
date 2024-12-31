@@ -42,3 +42,15 @@ export const CollectionCardSkeleton = () => {
         </div>
     )
 }
+
+export const FeaturedCollectionsSkeleton = () => {
+    return (
+        <ContentContainer>
+            <div className='flex gap-4'>
+                <CollectionCardSkeleton/>
+                <CollectionCardSkeleton/>
+                <CollectionCardSkeleton/>
+            </div>
+        </ContentContainer>
+    )
+}
