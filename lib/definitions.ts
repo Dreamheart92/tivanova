@@ -63,3 +63,16 @@ export type ProductVariant = {
         selectedOptions: { name: string; value: string }[]
     }
 }
+
+export type Filter = {
+    label: string;
+    type: string;
+    values: FilterValue[];
+}
+
+export type FilterValue = {
+    id: string;
+    input: string;
+    label: string;
+    count: number;
+}
