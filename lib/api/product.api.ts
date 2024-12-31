@@ -1,5 +1,5 @@
 import {client} from "@/lib/shopify";
-import {CollectionMeta, FeaturedProduct} from "@/lib/definitions";
+import {CollectionMeta, FeaturedProduct, Product} from "@/lib/definitions";
 
 export const fetchLatestProducts = async (): Promise<FeaturedProduct[]> => {
     const query = `
