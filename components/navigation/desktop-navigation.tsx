@@ -6,6 +6,7 @@ import MainMenu from "@/components/navigation/ui/main-menu";
 import Logo from "@/components/navigation/ui/logo";
 import AccountMenu from "@/components/navigation/ui/account-menu";
 import {cva} from "class-variance-authority";
+import {usePathname} from "next/navigation";
 
 type WrapperProps = {
     basis: string;
@@ -28,7 +29,7 @@ const Wrapper = ({basis, justify, children}: WrapperProps) => {
 }
 
 const headerStyles = cva(
-    'z-20 w-full top-0 fixed transition-colors duration-300 ease-in py-4',
+    'w-full py-4 z-50',
     {
         variants: {
             variant: {
