@@ -6,8 +6,24 @@ import ProductGallery from "@/app/(product)/product/[productId]/components/produ
 import ProductDetails from "@/app/(product)/product/[productId]/components/product-details";
 import {Suspense} from "react";
 
-type ProductProps = {
-    params: Promise<{ productId: string }>;
+const pageSettings = {
+    scrollCaption: 'Scroll for more',
+    productDetails: {
+        currency: 'EURO',
+        colorPicker: {
+            label: 'Color',
+        },
+        sizePicker: {
+            label: 'Size',
+            placeholder: 'Select a size',
+        },
+        addToCartButton: 'Add to cart',
+        description: 'Description',
+        shipping: {
+            label: 'Shipping & returns',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        }
+    },
 }
 
 const ProductWrapper = async ({productId}: { productId: string }) => {
@@ -21,10 +37,18 @@ const ProductWrapper = async ({productId}: { productId: string }) => {
 
     return (
         <div className='flex'>
-            <ProductGallery images={product.images.edges}/>
-            <ProductDetails product={product} variants={productVariants}/>
+            <ProductGallery images={product.images.edges} scrollCaption={pageSettings.scrollCaption}/>
+            <ProductDetails
+                settings={pageSettings.productDetails}
+                product={product}
+                variants={productVariants}
+            />
         </div>
     )
+}
+
+type ProductProps = {
+    params: Promise<{ productId: string }>;
 }
 
 export default async function Product({params}: ProductProps) {
