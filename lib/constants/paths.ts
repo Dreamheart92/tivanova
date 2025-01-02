@@ -4,4 +4,6 @@ export const PATHS = {
     COLLECTIONS: '/collections',
     ABOUT: '/about',
     JOURNAL: '/journal',
+    LOGIN: '/login',
+    SIGNUP: '/signup',
 }
