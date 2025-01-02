@@ -6,25 +6,41 @@ import {Heart} from "lucide-react";
 import {Separator} from "@/components/ui/separator";
 
 type ProductDetailsProps = {
+    settings: {
+        currency: string;
+        colorPicker: {
+            label: string;
+        }
+        sizePicker: {
+            label: string;
+            placeholder: string;
+        },
+        addToCartButton: string;
+        description: string;
+        shipping: {
+            label: string;
+            content: string;
+        }
+    }
     product: Product;
     variants: Variant[];
 }
 
-export default function ProductDetails({product, variants}: ProductDetailsProps) {
+export default function ProductDetails({product, variants, settings}: ProductDetailsProps) {
     const productSizeOptions = findVariantByColor(variants, variants[0].color);
 
     return (
         <div className='pt-[5em] basis-[30%] flex flex-col gap-4'>
-            <div className=''>
+            <div>
                 <div className='flex justify-between items-center'>
                     <h3>{product.title}</h3>
-                    <p>{Number(product.priceRange.minVariantPrice.amount).toFixed(2)} EURO</p>
+                    <p>{Number(product.priceRange.minVariantPrice.amount).toFixed(2)} {settings.currency}</p>
                 </div>
                 <p className='text-[#919191]'>{product.vendor}</p>
             </div>
 
             <div>
-                <h4>Color</h4>
+                <h4>{settings.colorPicker.label}</h4>
 
                 <div className='gap-2 flex'>
                     {variants.map((variant) => (
@@ -34,12 +50,12 @@ export default function ProductDetails({product, variants}: ProductDetailsProps)
             </div>
 
             <div>
-                <h4>Size</h4>
+                <h4>{settings.sizePicker.label}</h4>
 
                 <div>
                     <Select>
                         <SelectTrigger>
-                            <SelectValue placeholder='Select a size'/>
+                            <SelectValue placeholder={settings.sizePicker.placeholder}/>
                         </SelectTrigger>
 
                         <SelectContent>
@@ -58,12 +74,12 @@ export default function ProductDetails({product, variants}: ProductDetailsProps)
             </div>
 
             <div className='flex gap-2'>
-                <Button variant='default' className='uppercase basis-4/5'>Add to cart</Button>
+                <Button variant='default' className='uppercase basis-4/5'>{settings.addToCartButton}</Button>
                 <Button variant='default' className='flex-1'><Heart/></Button>
             </div>
 
             <div>
-                <h5 className='font-bold pb-2'>Description</h5>
+                <h5 className='font-bold pb-2'>{settings.description}</h5>
 
                 <div dangerouslySetInnerHTML={{__html: product.descriptionHtml}}/>
             </div>
@@ -71,15 +87,9 @@ export default function ProductDetails({product, variants}: ProductDetailsProps)
             <Separator/>
 
             <div>
-                <h5 className='font-bold pb-2'>Shipping & returns</h5>
+                <h5 className='font-bold pb-2'>{settings.shipping.label}</h5>
 
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                <p>{settings.shipping.content}</p>
             </div>
         </div>
     )
