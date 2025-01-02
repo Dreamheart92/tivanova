@@ -1,5 +1,5 @@
 import {client} from "@/lib/shopify";
-import {CollectionMeta, FeaturedProduct, Filter, Product} from "@/lib/definitions";
+import {CollectionMeta, FeaturedProduct, FilterType, Product} from "@/lib/definitions";
 
 export const fetchLatestProducts = async (): Promise<FeaturedProduct[]> => {
     const query = `
@@ -131,7 +131,7 @@ export const fetchCatalogueProducts = async (search: {
     category?: string
 }): Promise<{
     products: FeaturedProduct[],
-    filters: Filter[]
+    filters: FilterType[]
 }> => {
     const searchQuery = Object.values((search)).reduce((a: string[], b: string) => {
         b.split('|').forEach((query: string) => {
