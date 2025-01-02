@@ -6,15 +6,22 @@ import FeaturedCollection from "@/app/(home)/components/featured-collection";
 import {Suspense} from "react";
 import {FeaturedCollectionsSkeleton, FeaturedProductsSkeleton} from "@/components/skeletons";
 
-const featuredProductSections = {
-    newArrivals: {
-        title: 'New Arrivals',
-        caption: 'New Styles, New You: Explore what’s just arrived',
+const pageSettings = {
+    hero: {
+        title: 'FALL/WINTER 2024',
     },
-    featured: {
-        title: 'Featured',
-        caption: 'Handpicked Just for You: Discover Our Top Picks of the Season',
-    }
+    sections: {
+        featuredProducts: {
+            newArrivals: {
+                title: 'New Arrivals',
+                caption: 'New Styles, New You: Explore what’s just arrived',
+            },
+            featured: {
+                title: 'Featured',
+                caption: 'Handpicked Just for You: Discover Our Top Picks of the Season',
+            }
+        }
+    },
 }
 
 const NewArrivalsWrapper = async () => {
@@ -23,7 +30,7 @@ const NewArrivalsWrapper = async () => {
     return (
         <FeaturedProducts
             products={newArrivals}
-            meta={featuredProductSections.newArrivals}
+            meta={pageSettings.sections.featuredProducts.newArrivals}
         />
     )
 }
@@ -34,7 +41,7 @@ const FeaturedWrapper = async () => {
     return (
         <FeaturedProducts
             products={products}
-            meta={featuredProductSections.newArrivals}
+            meta={pageSettings.sections.featuredProducts.featured}
         />
     )
 }
@@ -49,7 +56,7 @@ export default async function Home() {
 
     return (
         <div className='flex flex-col gap-4 lg:gap-12'>
-            <Hero/>
+            <Hero title={pageSettings.hero.title}/>
             <Suspense fallback={<FeaturedProductsSkeleton/>}>
                 <NewArrivalsWrapper/>
             </Suspense>
