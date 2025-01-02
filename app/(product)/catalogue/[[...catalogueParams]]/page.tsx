@@ -13,19 +13,9 @@ export default async function Catalogue({params, searchParams}: CatalogueProps) 
 
     return (
         <div>
-            <div className='text-center bg-red-500 py-3 mb-12 uppercase text-white'>
-                <h5 className='animate-bounce font-bold'>New Collection Just Dropped</h5>
-            </div>
+            <AnnouncementBanner/>
             <ContentContainer>
-                <div className='pb-4'>
-                    <span className='uppercase cursor-pointer'>Filter</span>
-                </div>
-
-                <div className='flex gap-4 flex-wrap'>
-                    {products.map((product) => (
-                        <ProductCard key={product.id} product={product}/>
-                    ))}
-                </div>
+                <ProductList products={products}/>
             </ContentContainer>
         </div>
     )
