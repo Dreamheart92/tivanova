@@ -3,10 +3,6 @@ import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/comp
 import Filter from "@/app/(product)/catalogue/[[...catalogueParams]]/components/filter";
 import ClearFiltersButton from "@/app/(product)/catalogue/[[...catalogueParams]]/components/clear-filters-button";
 
-type FiltersPanelProps = {
-    filters: FilterType[];
-}
-
 const Filters = ({filters}: { filters: FilterType[] }) => {
     return (
         <div className='basis-4/5 overflow-y-auto overflow-x-hidden'>
@@ -17,16 +13,22 @@ const Filters = ({filters}: { filters: FilterType[] }) => {
     )
 }
 
-export default function FiltersPanel({filters}: FiltersPanelProps) {
+type FiltersPanelProps = {
+    toggleFiltersLabel: string;
+    clearQueryButtonLabel: string;
+    filters: FilterType[];
+}
+
+export default function FiltersPanel({toggleFiltersLabel, clearQueryButtonLabel, filters}: FiltersPanelProps) {
     return (
         <Sheet>
             <SheetTrigger className='pb-4'>FILTERS</SheetTrigger>
             <SheetContent className='overflow-y-scroll flex flex-col'>
                 <SheetHeader className='basis-1/12'>
-                    <SheetTitle>FILTERS</SheetTitle>
+                    <SheetTitle>{toggleFiltersLabel}</SheetTitle>
                 </SheetHeader>
                 <Filters filters={filters}/>
-                <ClearFiltersButton/>
+                <ClearFiltersButton label={clearQueryButtonLabel}/>
             </SheetContent>
         </Sheet>
     )
