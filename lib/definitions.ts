@@ -64,13 +64,13 @@ export type ProductVariant = {
     }
 }
 
-export type Filter = {
+export type FilterType = {
     label: string;
     type: string;
-    values: FilterValue[];
+    values: FilterOption[];
 }
 
-export type FilterValue = {
+export type FilterOption = {
     id: string;
     input: string;
     label: string;
