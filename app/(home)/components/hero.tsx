@@ -1,4 +1,8 @@
-export default function Hero() {
+type HeroProps = {
+    title: string;
+}
+
+export default function Hero({title}: HeroProps) {
     return (
         <div className="relative">
             <picture>
@@ -19,7 +23,7 @@ export default function Hero() {
             </picture>
 
             <div className='absolute top-1/2 -translate-y-1/2 w-full text-center'>
-                <h1 className='text-white'>FALL/WINTER 2024</h1>
+                <h1 className='text-white'>{title}</h1>
             </div>
         </div>
     )
