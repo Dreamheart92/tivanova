@@ -1,6 +1,8 @@
 import {fetchCatalogueProducts} from "@/lib/api/product.api";
 import ContentContainer from "@/components/ui/content-container";
-import ProductCard from "@/components/product-card";
+import AnnouncementBanner from "@/app/(product)/catalogue/[[...catalogueParams]]/components/announcement-banner";
+import ProductList from "@/app/(product)/catalogue/[[...catalogueParams]]/components/product-list";
+import FiltersPanel from "@/app/(product)/catalogue/[[...catalogueParams]]/components/filters-panel";
 
 type CatalogueProps = {
     params: Promise<{ category: string }>,
@@ -15,6 +17,7 @@ export default async function Catalogue({params, searchParams}: CatalogueProps) 
         <div>
             <AnnouncementBanner/>
             <ContentContainer>
+                <FiltersPanel filters={filters}/>
                 <ProductList products={products}/>
             </ContentContainer>
         </div>
