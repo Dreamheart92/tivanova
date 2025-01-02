@@ -8,9 +8,10 @@ import {useState} from "react";
 
 type ProductGalleryProps = {
     images: ProductImage[];
+    scrollCaption: string;
 }
 
-export default function ProductGallery({images}: ProductGalleryProps) {
+export default function ProductGallery({images, scrollCaption}: ProductGalleryProps) {
     const [isGalleryOpen, setIsGalleryOpen] = useState<{ state: boolean, selectedImageIndex: null | number }>({
         state: false,
         selectedImageIndex: null,
@@ -50,7 +51,7 @@ export default function ProductGallery({images}: ProductGalleryProps) {
                 })}
 
                 <div className='absolute -right-16 -rotate-90 top-[7.5em]'>
-                    <p>Scroll for more</p>
+                    <p>{scrollCaption}</p>
                 </div>
             </div>
 
