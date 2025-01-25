@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
-import {extractShopifyId} from "@/lib/utils/utils";
 import {CollectionDetailsType} from "@/lib/definitions/product";
+import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
 
 type CollectionCardProps = {
     collection: CollectionDetailsType;
@@ -11,7 +11,7 @@ type CollectionCardProps = {
 export default function CollectionCard({collection}: CollectionCardProps) {
     return (
         <div className='cursor-pointer'>
-            <Link href={`${PATHS.COLLECTION}/${extractShopifyId(collection.id)}`}>
+            <Link href={`${PATHS.COLLECTION}/${extractShopifyIdFromGID(collection.id)}`}>
                 <div>
                     <Image
                         src={collection.image.url}
