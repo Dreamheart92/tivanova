@@ -4,11 +4,12 @@ import moment from "moment/moment";
 import {Button} from "@/components/ui/button";
 import {PATHS} from "@/lib/constants/paths";
 import Link from "next/link";
-import {extractShopifyId} from "@/lib/utils/utils";
+
+import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
 
 export default function OrderCard({order}: { order: OrderSummaryType }) {
     const orderQuantity = order.lineItems.reduce((accumulator, line) => accumulator + line.quantity, 0);
-    const orderId = extractShopifyId(order.id).split('?')[0];
+    const orderId = extractShopifyIdFromGID(order.id).split('?')[0];
 
     return (
         <div className='p-4 rounded-sm my-4 flex justify-between bg-white w-full'>
