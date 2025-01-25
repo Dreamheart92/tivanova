@@ -80,7 +80,7 @@ export default function CheckoutProvider(
         setCurrentViewIndex: handleSetCurrentViewIndex,
         incrementViewIndex: handleIncrementViewIndex,
         decrementViewIndex: handleDecrementViewIndex,
-    }), [currentView, shippingAddress, shippingMethod]);
+    }), [currentView, shippingAddress, shippingMethod, orderConfirmation, session]);
 
     return (
         <CheckoutContext.Provider value={checkoutContextValue}>

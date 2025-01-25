@@ -8,6 +8,8 @@ type ErrorProps = {
 }
 
 export default function Error({error, reset}: ErrorProps) {
+    console.error(error);
+
     return (
         <div>
             <h2>Something went wrong</h2>

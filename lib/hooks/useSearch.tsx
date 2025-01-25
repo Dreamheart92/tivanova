@@ -30,7 +30,7 @@ const useQueryParams = () => {
 
         router.replace(`${pathname}?${params.toString()}`);
 
-    }, [searchParams])
+    }, [searchParams, pathname, router]);
 
     return {
         updateQueryParam,

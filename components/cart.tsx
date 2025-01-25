@@ -27,7 +27,7 @@ export default function Cart({session}: { session: CustomerType | null }) {
                 createCartAndStoreCookie();
             }
         }
-    }, [cart]);
+    }, [cart, session]);
 
     const emptyCart = cart && cart.lines.length <= 0;
 

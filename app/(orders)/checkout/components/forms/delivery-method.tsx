@@ -30,7 +30,7 @@ export default function DeliveryMethod() {
         if (state.success) {
             incrementViewIndex();
         }
-    }, [state.success]);
+    }, [state.success, incrementViewIndex]);
 
     return (
         <form>

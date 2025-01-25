@@ -41,6 +41,7 @@ const CollectionWrapper = async ({collectionId}: { collectionId: string }) => {
             </ContentContainer>
         )
     } catch (error) {
+        console.error(error);
         return <CollectionSkeleton error={true}/>
     }
 }

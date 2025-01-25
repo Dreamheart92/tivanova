@@ -60,8 +60,13 @@ export const authenticate = async (guestCart: CartType | undefined, guestWishlis
         const accessToken = await createCustomerAccessToken(result.data.email, result.data.password);
         const customer = await fetchCustomerData(accessToken);
 
-        guestCart && await transferGuestCartToCustomerCart(customer.cartId, guestCart);
-        guestWishlist && await transferGuestWishlistToCustomer(customer.wishlistId, guestWishlist.lines);
+        if (guestCart) {
+            await transferGuestCartToCustomerCart(customer.cartId, guestCart);
+        }
+
+        if (guestWishlist) {
+            await transferGuestWishlistToCustomer(customer.wishlistId, guestWishlist.lines);
+        }
 
         await Promise.all([
             createCartIdCookie(customer.cartId),

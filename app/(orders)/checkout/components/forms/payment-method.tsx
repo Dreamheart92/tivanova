@@ -19,7 +19,7 @@ export default function PaymentMethod() {
             updateOrderConfirmation(state.order);
             incrementViewIndex();
         }
-    }, [state?.success]);
+    }, [state?.success, incrementViewIndex, state?.order, updateOrderConfirmation]);
 
     return (
         <form>

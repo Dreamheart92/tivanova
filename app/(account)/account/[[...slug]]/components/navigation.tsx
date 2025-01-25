@@ -9,7 +9,6 @@ import {
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
 import {ChevronRight} from "lucide-react";
-import {Separator} from "@/components/ui/separator";
 import {usePathname} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import {clsx} from "clsx";

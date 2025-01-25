@@ -4,10 +4,8 @@ import Logo from "@/components/navigation/ui/logo";
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Link from "next/link";
 import {useCheckout} from "@/lib/context/checkout";
 import {Fragment} from "react";
 import {clsx} from "clsx";

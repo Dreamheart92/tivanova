@@ -50,7 +50,7 @@ export default function EditProfileForm({customerData, onCloseDialog}: EditProfi
         if (state.success) {
             onCloseDialog();
         }
-    }, [state.success]);
+    }, [state.success, onCloseDialog]);
 
     return (
         <form className='flex flex-col gap-4'>

@@ -53,6 +53,7 @@ export const createOrder = async (prevState: any, cart: CartType | undefined) =>
 
         return generateCreateOrderResponse(null, true, order);
     } catch (error) {
+        console.error(error);
         return generateCreateOrderResponse('An error occurred while creating your order. Please try again.', false);
     }
 }

@@ -36,6 +36,7 @@ const NewArrivalsWrapper = async () => {
             />
         )
     } catch (error) {
+        console.error(error);
         return (
             <div>
                 <FeaturedProductsSkeleton errorMessage='Failed to load products.'/>
@@ -55,6 +56,7 @@ const FeaturedWrapper = async () => {
             />
         )
     } catch (error) {
+        console.error(error);
         return <FeaturedProductsSkeleton errorMessage='Failed to load products.'/>
     }
 }
@@ -65,6 +67,7 @@ const CollectionsWrapper = async () => {
 
         return <FeaturedCollections collections={collections}/>
     } catch (error) {
+        console.error(error);
         return <FeaturedCollectionsSkeleton errorMessage='Failed to load collections.'/>
     }
 }

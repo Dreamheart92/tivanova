@@ -39,7 +39,7 @@ export const createWishlist = async (customerId: string = '', lines: string[] = 
 }
 
 export const updateRemoteWishlist = async (wishlistId: string, lines: string[]) => {
-    const data = await adminFetcher(updateRemoteWishlistMutation, {
+    await adminFetcher(updateRemoteWishlistMutation, {
         id: wishlistId,
         metaobject: {
             fields: [

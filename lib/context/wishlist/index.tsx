@@ -91,7 +91,7 @@ export default function WishlistProvider({wishlistPromise, children}: WishlistPr
     const value = useMemo(() => ({
         wishlist,
         updateWishlist,
-    }), [wishlist])
+    }), [wishlist, updateWishlist])
 
     return (
         <WishlistContext.Provider value={value}>

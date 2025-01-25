@@ -38,6 +38,7 @@ export const addItem = async (prevState: any, lines: RemoteCartLineType[] | unde
         await addToCart(lines, cartId);
         revalidateTag(TAGS.CART);
     } catch (error) {
+        console.error(error);
         return 'Failed to add to cart';
     }
 }
@@ -53,6 +54,7 @@ export const removeFromCart = async (state: any, variantId: string) => {
         await cartLinesRemove(cartId, [variantId]);
         revalidateTag(TAGS.CART);
     } catch (error) {
+        console.error(error);
         return 'An error occurred while removing the item from your cart. Please try again.'
     }
 }
@@ -132,6 +134,7 @@ export const createShippingAddress = async (
 
         return createShippingAddressResponse(result.data, {}, true);
     } catch (error) {
+        console.error(error);
         return createShippingAddressResponse(
             result.data,
             {
@@ -191,6 +194,7 @@ export const selectDeliveryOption = async (deliveryContext: DeliveryContextType,
 
         return createSelectDeliveryOptionResponse(result.data, {}, true);
     } catch (error) {
+        console.error(error);
         return createSelectDeliveryOptionResponse(
             result.data,
             {

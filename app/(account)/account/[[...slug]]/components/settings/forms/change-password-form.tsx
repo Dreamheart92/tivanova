@@ -40,7 +40,7 @@ export default function ChangePasswordForm({onCloseDialog}: ChangePasswordFormPr
         if (state.success) {
             onCloseDialog();
         }
-    }, [state.success]);
+    }, [state.success, onCloseDialog]);
 
     const errorMessage = state?.errors?.internalError?.[0];
 

@@ -1,5 +1,3 @@
-import {Button} from "@/components/ui/button";
-import {Heart} from "lucide-react";
 import {Separator} from "@/components/ui/separator";
 import VariantSelector from "@/app/(product)/product/[productId]/components/variant-selector";
 import AddToCartButton from "@/app/(product)/product/[productId]/components/add-to-cart-button";

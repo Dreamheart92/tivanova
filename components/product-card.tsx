@@ -68,7 +68,10 @@ const ProductCardImage = ({images, alt, size}: ProductCardImageProps) => {
                 alt={alt}
                 width={size.width}
                 height={size.height}
-                className={clsx('transition-opacity 0.3s ease-in object-cover object-center', `max-h-[${size.maxHeight}px]`)}
+                className='transition-opacity 0.3s ease-in object-cover object-center'
+                style={{
+                    maxHeight: `${size.maxHeight}px`
+                }}
             />
 
             <Image

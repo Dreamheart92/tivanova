@@ -29,6 +29,7 @@ export const fetchCart = nextCache(
 
             return reshapeCart(data.cart);
         } catch (error) {
+            console.error(error);
             return undefined;
         }
     }),
@@ -56,6 +57,7 @@ export const createCart = async (accessToken: string | undefined, lines: RemoteC
 
         return data.cartCreate.cart.id;
     } catch (error) {
+        console.error(error);
         return undefined;
     }
 }

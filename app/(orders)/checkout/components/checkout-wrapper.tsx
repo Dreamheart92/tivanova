@@ -6,9 +6,9 @@ import PaymentMethod from "@/app/(orders)/checkout/components/forms/payment-meth
 import {useCheckout} from "@/lib/context/checkout";
 
 const checkoutViews = [
-    <CheckoutDeliveryInformationFormWrapper/>,
-    <DeliveryMethod/>,
-    <PaymentMethod/>,
+    <CheckoutDeliveryInformationFormWrapper key='delivery-information'/>,
+    <DeliveryMethod key='delivery-method'/>,
+    <PaymentMethod key='payment-method'/>,
 ]
 
 export default function CheckoutWrapper() {

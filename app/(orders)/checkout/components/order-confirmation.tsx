@@ -20,7 +20,7 @@ export default function OrderConfirmation() {
     return (
         <div>
             <h3>Thank you for your order!</h3>
-            <p>We're excited to prepare your items and get them to you. A confirmation
+            <p>We&apos;re excited to prepare your items and get them to you. A confirmation
                 email with all the details has been sent your way. Feel free to reach out if you have any questions
                 about your order!</p>
 

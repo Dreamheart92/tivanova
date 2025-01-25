@@ -52,7 +52,7 @@ export default function CartProvider({cartPromise, children}: {
         addItemToCart,
         removeItemFromCart,
         open,
-    }), [optimisticCart, open]);
+    }), [optimisticCart, open, addItemToCart, removeItemFromCart]);
 
     return (
         <CartContext value={contextValue}>

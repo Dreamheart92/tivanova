@@ -45,11 +45,12 @@ const CatalogueWrapper = async ({search}: { search: SearchParamsType }) => {
             </ContentContainer>
         )
     } catch (error) {
+        console.error(error);
         return <CatalogueSkeleton errorMessage='Failed to load products. Please try again.'/>
     }
 }
 
-export default async function Catalogue({params, searchParams}: CatalogueProps) {
+export default async function Catalogue({searchParams}: CatalogueProps) {
     const search = await searchParams;
 
     return (

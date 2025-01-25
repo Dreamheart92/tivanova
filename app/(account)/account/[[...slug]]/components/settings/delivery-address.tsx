@@ -17,7 +17,7 @@ export default function DeliveryAddress() {
                     <EditDeliveryAddress label='Add delivery address'/>
                 </div>
 
-                <p>You don't have a delivery address set.</p>
+                <p>You don&apos;t have a delivery address set.</p>
             </div>
         )
     }

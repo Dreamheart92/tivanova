@@ -23,7 +23,7 @@ export default function EditDeliveryAddressFormWrapper({onCloseDialog}: { onClos
         if (state.success) {
             onCloseDialog();
         }
-    }, [state.success]);
+    }, [state.success, onCloseDialog]);
 
     return (
         <DeliveryInformationForm

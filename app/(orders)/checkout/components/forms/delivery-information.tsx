@@ -31,7 +31,7 @@ export default function CheckoutDeliveryInformationFormWrapper() {
         if (state.success) {
             incrementViewIndex();
         }
-    }, [state.success]);
+    }, [state.success, incrementViewIndex]);
 
     return (
         <DeliveryInformationForm
