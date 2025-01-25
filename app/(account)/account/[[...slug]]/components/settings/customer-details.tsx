@@ -2,7 +2,7 @@ import {Separator} from "@/components/ui/separator";
 import {normalizeName} from "@/lib/utils/utils";
 import EditProfile from "@/app/(account)/account/[[...slug]]/components/settings/edit-profile";
 import ChangePassword from "@/app/(account)/account/[[...slug]]/components/settings/change-password";
-import {CustomerType} from "@/lib/definitions/customer";
+import {CustomerType} from "@/lib/definitions/customer.definitions";
 
 type CustomerDetailsProps = {
     customer: CustomerType;

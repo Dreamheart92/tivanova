@@ -4,8 +4,8 @@ import {createContext, startTransition, use, useContext, useMemo, useOptimistic,
 import {CartState} from "@/lib/context/cart/definitions";
 import cartReducer from "@/lib/context/cart/reducer";
 import {ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART} from "@/lib/context/cart/types";
-import {CartType} from "@/lib/definitions/cart";
-import {ProductType, ProductVariantType} from "@/lib/definitions/product";
+import {CartType} from "@/lib/definitions/cart.definitions";
+import {ProductType, ProductVariantType} from "@/lib/definitions/product.definitions";
 
 type CartContextType = CartState;
 

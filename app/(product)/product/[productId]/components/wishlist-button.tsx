@@ -4,7 +4,7 @@ import {Button} from "@/components/ui/button";
 import {Heart} from "lucide-react";
 import {useWishlist} from "@/lib/context/wishlist";
 
-import {ProductType} from "@/lib/definitions/product";
+import {ProductType} from "@/lib/definitions/product.definitions";
 
 export default function WishlistButton({product}: { product: ProductType }) {
     const {wishlist, updateWishlist} = useWishlist();

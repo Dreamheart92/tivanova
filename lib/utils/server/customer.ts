@@ -3,7 +3,7 @@
 import {cookies} from "next/headers";
 import {SETTINGS} from "@/settings";
 import {fetchCustomerData} from "@/lib/api/customer.api";
-import {RemoteCartLineType} from "@/lib/definitions/cart";
+import {RemoteCartLineType} from "@/lib/definitions/cart.definitions";
 import {createCart} from "@/lib/api/cart.api";
 import {createCartIdCookie} from "@/lib/session";
 

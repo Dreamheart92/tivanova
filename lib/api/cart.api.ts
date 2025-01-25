@@ -2,7 +2,7 @@
 
 import {unstable_cache as nextCache} from 'next/cache';
 import {cache} from "react";
-import {AddressType} from "@/lib/definitions/customer";
+import {AddressType} from "@/lib/definitions/customer.definitions";
 import {TAGS} from "@/lib/constants/tags";
 import {fetchCartQuery} from "@/lib/api/queries/cart";
 import {
@@ -12,7 +12,7 @@ import {
     cartSelectedDeliveryOptionsUpdateMutation,
     createCartMutation,
 } from "@/lib/api/mutations/cart";
-import {BuyerIdentityType, CartDeliveryAddressType, RemoteCartLineType} from "@/lib/definitions/cart";
+import {BuyerIdentityType, CartDeliveryAddressType, RemoteCartLineType} from "@/lib/definitions/cart.definitions";
 import {clientFetcher} from "@/lib/api/shopify";
 import {hasShopifyUserError, reshapeCart} from "@/lib/utils/shopify";
 

@@ -1,7 +1,7 @@
 'use client';
 
 import {createContext, use, useContext, useMemo, useState} from "react";
-import {AvailableShippingCountryType} from "@/lib/definitions/shop";
+import {AvailableShippingCountryType} from "@/lib/definitions/shop.definitions";
 
 type ShopContextStateType = {
     shopSettings: AvailableShippingCountryType;

@@ -5,7 +5,7 @@ import {findVariantByColor, organizeProductVariants} from "@/lib/utils/product";
 import {Button} from "@/components/ui/button";
 import {useState} from "react";
 import {useProduct} from "@/lib/context/product";
-import {ProductVariantType} from "@/lib/definitions/product";
+import {ProductVariantType} from "@/lib/definitions/product.definitions";
 
 type VariantSelectorProps = {
     variants: ProductVariantType[];

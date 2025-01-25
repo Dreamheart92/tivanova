@@ -11,9 +11,9 @@ import {useActionState, useEffect} from "react";
 import {removeFromCart} from "@/lib/actions/cart.actions";
 import Link from "next/link";
 import {useShop} from "@/lib/context/shop";
-import {CartProductType} from "@/lib/definitions/cart";
+import {CartProductType} from "@/lib/definitions/cart.definitions";
 import ErrorMessage from "@/app/(auth)/components/error-message";
-import {CustomerType} from "@/lib/definitions/customer";
+import {CustomerType} from "@/lib/definitions/customer.definitions";
 import {createCartAndStoreCookie, fetchCustomerCartIdAndStoreAsCookie} from "@/lib/utils/server/customer";
 
 export default function Cart({session}: { session: CustomerType | null }) {

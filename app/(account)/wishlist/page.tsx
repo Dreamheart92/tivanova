@@ -6,7 +6,7 @@ import ProductCard from "@/components/product-card";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
-import {FeaturedProductType} from "@/lib/definitions/product";
+import {FeaturedProductType} from "@/lib/definitions/product.definitions";
 
 const WishlistCard = ({product}: { product: FeaturedProductType }) => {
     const {updateWishlist} = useWishlist();

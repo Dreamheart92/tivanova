@@ -1,4 +1,4 @@
-import {AddressType} from "@/lib/definitions/customer";
+import {AddressType} from "@/lib/definitions/customer.definitions";
 import Wrapper from "@/app/(orders)/components/wrapper";
 
 export default function DeliveryAddress({deliveryAddress}: { deliveryAddress: AddressType }) {

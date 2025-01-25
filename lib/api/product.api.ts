@@ -1,4 +1,4 @@
-import {CollectionDetailsType, CollectionType, FeaturedProductType, ProductType} from "@/lib/definitions/product";
+import {CollectionDetailsType, CollectionType, FeaturedProductType, ProductType} from "@/lib/definitions/product.definitions";
 import {
     catalogueProductsQuery, fetchCollectionQuery,
     fetchFeaturedProductsQuery,

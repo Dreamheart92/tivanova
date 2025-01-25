@@ -5,7 +5,7 @@ import {useProduct} from "@/lib/context/product";
 import {useCart} from "@/lib/context/cart";
 import {addItem} from "@/lib/actions/cart.actions";
 import {createCartLine} from "@/lib/utils/cart";
-import {ProductType} from "@/lib/definitions/product";
+import {ProductType} from "@/lib/definitions/product.definitions";
 import {useActionState} from "react";
 import ErrorMessage from "@/app/(auth)/components/error-message";
 

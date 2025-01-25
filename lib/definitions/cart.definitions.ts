@@ -1,5 +1,5 @@
-import {AddressType} from "@/lib/definitions/customer";
-import {ProductType, ProductVariantType} from "@/lib/definitions/product";
+import {AddressType} from "@/lib/definitions/customer.definitions";
+import {ProductType, ProductVariantType} from "@/lib/definitions/product.definitions";
 
 export type RemoteCartLineType = {
     merchandiseId: string;

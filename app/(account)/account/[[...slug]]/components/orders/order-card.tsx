@@ -1,4 +1,4 @@
-import {OrderSummaryType} from "@/lib/definitions/order";
+import {OrderSummaryType} from "@/lib/definitions/order.definitions";
 import Image from "next/image";
 import moment from "moment/moment";
 import {Button} from "@/components/ui/button";

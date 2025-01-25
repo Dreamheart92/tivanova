@@ -1,5 +1,5 @@
 import {Separator} from "@/components/ui/separator";
-import {OrderSummaryType} from "@/lib/definitions/order";
+import {OrderSummaryType} from "@/lib/definitions/order.definitions";
 import OrderCard from "@/app/(account)/account/[[...slug]]/components/orders/order-card";
 
 type OrdersProps = {

@@ -1,8 +1,8 @@
 'use server';
 
 import {fetchAvailableShippingCountriesQuery, fetchOrderByIdQuery} from "@/lib/api/queries/order";
-import {CreateOrderType, OrderSummaryType, OrderType} from "@/lib/definitions/order";
-import {AvailableShippingCountryType} from "@/lib/definitions/shop";
+import {CreateOrderType, OrderSummaryType, OrderType} from "@/lib/definitions/order.definitions";
+import {AvailableShippingCountryType} from "@/lib/definitions/shop.definitions";
 import {orderCreateMutation} from "@/lib/api/mutations/order";
 import {fetchCustomerOrdersQuery} from "@/lib/api/queries/customer";
 import {adminFetcher, clientFetcher} from "@/lib/api/shopify";

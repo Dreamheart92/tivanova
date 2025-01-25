@@ -1,5 +1,5 @@
 import {clsx} from "clsx";
-import {CostType} from "@/lib/definitions/cart";
+import {CostType} from "@/lib/definitions/cart.definitions";
 import Wrapper from "@/app/(orders)/components/wrapper";
 
 const OrderCostField = ({label, value, bold = false}: { label: string, value: string | number, bold?: boolean }) => {

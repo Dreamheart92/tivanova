@@ -1,6 +1,6 @@
 import CollectionCard from "@/components/colleciton-card";
 import ContentContainer from "@/components/ui/content-container";
-import {CollectionDetailsType} from "@/lib/definitions/product";
+import {CollectionDetailsType} from "@/lib/definitions/product.definitions";
 
 type FeaturedCollectionsProps = {
     collections: CollectionDetailsType[];

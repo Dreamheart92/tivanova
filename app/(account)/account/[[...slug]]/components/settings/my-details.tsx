@@ -1,4 +1,4 @@
-import {CustomerType} from "@/lib/definitions/customer";
+import {CustomerType} from "@/lib/definitions/customer.definitions";
 import EditProfile from "@/app/(account)/account/[[...slug]]/components/settings/edit-profile";
 import DetailsField from "@/app/(account)/account/[[...slug]]/components/settings/details-field";
 

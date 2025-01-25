@@ -4,7 +4,7 @@ import {Separator} from "@/components/ui/separator";
 import VariantSelector from "@/app/(product)/product/[productId]/components/variant-selector";
 import AddToCartButton from "@/app/(product)/product/[productId]/components/add-to-cart-button";
 import WishlistButton from "@/app/(product)/product/[productId]/components/wishlist-button";
-import {ProductType} from "@/lib/definitions/product";
+import {ProductType} from "@/lib/definitions/product.definitions";
 
 type ProductDetailsProps = {
     settings: {

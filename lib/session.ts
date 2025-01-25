@@ -1,7 +1,7 @@
 'use server';
 
 import {cookies} from "next/headers";
-import {CustomerType} from "@/lib/definitions/customer";
+import {CustomerType} from "@/lib/definitions/customer.definitions";
 
 type Customer = {
     id: string;

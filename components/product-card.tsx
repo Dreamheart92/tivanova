@@ -4,11 +4,11 @@ import Image from "next/image";
 import {useState} from "react";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
-import {FeaturedProductType} from "@/lib/definitions/product";
+import {FeaturedProductType} from "@/lib/definitions/product.definitions";
 import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
 import {ImageType} from "@/lib/definitions/definitions";
 import {clsx} from "clsx";
-import {CostType} from "@/lib/definitions/cart";
+import {CostType} from "@/lib/definitions/cart.definitions";
 
 type ProductCardProps = {
     product: FeaturedProductType;
@@ -18,7 +18,6 @@ type ProductCardProps = {
 }
 
 export default function ProductCard({product, width = 500, height = 500, maxHeight = 570}: ProductCardProps) {
-
 
     return (
         <div

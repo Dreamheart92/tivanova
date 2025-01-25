@@ -13,7 +13,7 @@ import {updateCustomer} from "@/lib/api/customer.api";
 import {isRedirectError} from "next/dist/client/components/redirect-error";
 import {createCustomerAccessToken} from "@/lib/api/auth.api";
 import {ShopifyError} from "@/lib/errors/ShopifyError";
-import {AuthenticationErrorType, InternalErrorType} from "@/lib/definitions/error";
+import {AuthenticationErrorType, InternalErrorType} from "@/lib/definitions/error.definitions";
 
 export type ExtendedUpdateCustomerSchemaErrorType =
     UpdateCustomerSchemaErrorType

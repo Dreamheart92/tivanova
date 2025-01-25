@@ -7,7 +7,7 @@ import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVal
 import ErrorMessage from "@/app/(auth)/components/error-message";
 import {Label} from "@/components/ui/label";
 import {ExtendedShippingAddressSchemaErrorType} from "@/lib/actions/cart.actions";
-import {AvailableShippingCountryType} from "@/lib/definitions/shop";
+import {AvailableShippingCountryType} from "@/lib/definitions/shop.definitions";
 import {ShippingAddressSchemaType} from "@/lib/validations/checkoutSchema";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";

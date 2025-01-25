@@ -1,5 +1,5 @@
-import {CartType} from "@/lib/definitions/cart";
-import {ProductType, ProductVariantType} from "@/lib/definitions/product";
+import {CartType} from "@/lib/definitions/cart.definitions";
+import {ProductType, ProductVariantType} from "@/lib/definitions/product.definitions";
 
 export interface CartState {
     open: boolean;

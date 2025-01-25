@@ -1,5 +1,5 @@
-import {CartProductType, CartType} from "@/lib/definitions/cart";
-import {FeaturedProductType, ProductType, ProductVariantType} from "@/lib/definitions/product";
+import {CartProductType, CartType} from "@/lib/definitions/cart.definitions";
+import {FeaturedProductType, ProductType, ProductVariantType} from "@/lib/definitions/product.definitions";
 
 export const createOrUpdateCartProduct = (existingProduct: CartProductType | undefined, product: ProductType, variant: ProductVariantType) => {
     const quantity = existingProduct ? existingProduct.quantity + 1 : 1;

@@ -3,7 +3,7 @@
 import {useCart} from "@/lib/context/cart";
 import Image from "next/image";
 
-import {CartProductType} from "@/lib/definitions/cart";
+import {CartProductType} from "@/lib/definitions/cart.definitions";
 
 const CheckoutProductCard = ({product}: { product: CartProductType }) => {
     return (

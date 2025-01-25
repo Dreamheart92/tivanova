@@ -20,8 +20,8 @@ import {
     ShippingMethodSchemaType
 } from "@/lib/validations/checkoutSchema";
 import {checkIfAddressExist} from "@/lib/utils/utils";
-import {CartType, RemoteCartLineType} from "@/lib/definitions/cart";
-import {InternalErrorType} from "@/lib/definitions/error";
+import {CartType, RemoteCartLineType} from "@/lib/definitions/cart.definitions";
+import {InternalErrorType} from "@/lib/definitions/error.definitions";
 
 export const addItem = async (prevState: any, lines: RemoteCartLineType[] | undefined) => {
     if (!lines) {

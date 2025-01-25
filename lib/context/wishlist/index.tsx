@@ -9,7 +9,7 @@ import {
 import {createWishlistAndStoreCookie, updateWishlistAction} from "@/lib/actions/wishlist.actions";
 import {useToast} from "@/hooks/use-toast";
 import {generateToastDescription, modifyWishlistProductIds} from "@/lib/utils/wishlist.utils";
-import {FeaturedProductType} from "@/lib/definitions/product";
+import {FeaturedProductType} from "@/lib/definitions/product.definitions";
 
 export type Wishlist = {
     id: string;

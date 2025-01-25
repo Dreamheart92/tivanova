@@ -1,6 +1,6 @@
 'use server';
 
-import {CartType} from "@/lib/definitions/cart";
+import {CartType} from "@/lib/definitions/cart.definitions";
 import {addToCart, fetchCart} from "@/lib/api/cart.api";
 import {revalidateTag} from "next/cache";
 import {TAGS} from "@/lib/constants/tags";

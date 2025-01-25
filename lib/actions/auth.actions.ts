@@ -30,8 +30,8 @@ import {
     convertProductToShopifyCartLines, getProductsIds
 } from "@/lib/utils/cart";
 import {ShopifyError} from "@/lib/errors/ShopifyError";
-import {AuthenticationErrorType, InternalErrorType} from "@/lib/definitions/error";
-import {CartType} from "@/lib/definitions/cart";
+import {AuthenticationErrorType, InternalErrorType} from "@/lib/definitions/error.definitions";
+import {CartType} from "@/lib/definitions/cart.definitions";
 import {transferGuestCartToCustomerCart} from "@/lib/utils/server/cart";
 import {createCartAndStoreCookie} from "@/lib/utils/server/customer";
 

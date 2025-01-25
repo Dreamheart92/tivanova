@@ -1,6 +1,6 @@
-import {AddressType} from "@/lib/definitions/customer";
-import {CostType} from "@/lib/definitions/cart";
-import {SelectedProductOptionType} from "@/lib/definitions/product";
+import {AddressType} from "@/lib/definitions/customer.definitions";
+import {CostType} from "@/lib/definitions/cart.definitions";
+import {SelectedProductOptionType} from "@/lib/definitions/product.definitions";
 
 type CreateOrderLineType = {
     title: string;

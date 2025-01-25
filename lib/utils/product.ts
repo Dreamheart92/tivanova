@@ -1,4 +1,4 @@
-import {ProductVariantType, VariantType} from "@/lib/definitions/product";
+import {ProductVariantType, VariantType} from "@/lib/definitions/product.definitions";
 
 export const organizeProductVariants = (variants: ProductVariantType[]): VariantType[] => {
     const productVariants: VariantType[] = [];

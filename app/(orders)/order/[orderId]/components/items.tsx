@@ -1,4 +1,4 @@
-import {OrderLineItemType} from "@/lib/definitions/order";
+import {OrderLineItemType} from "@/lib/definitions/order.definitions";
 import ItemCard from "@/app/(orders)/components/item-card";
 import Wrapper from "@/app/(orders)/components/wrapper";
 

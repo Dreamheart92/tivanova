@@ -2,7 +2,7 @@
 
 import {createContext, useContext, useState} from "react";
 
-import {ProductVariantType} from "@/lib/definitions/product";
+import {ProductVariantType} from "@/lib/definitions/product.definitions";
 
 type ProductContextState = {
     selectedOption: ProductVariantType | null,

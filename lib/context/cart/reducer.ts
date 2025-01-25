@@ -1,7 +1,7 @@
 import {ADD_ITEM_TO_CART, CartActions, REMOVE_ITEM_FROM_CART} from "@/lib/context/cart/types";
 import {createOrUpdateCartProduct, updateCostAndQuantity} from "@/lib/utils/cart";
 
-import {CartType} from "@/lib/definitions/cart";
+import {CartType} from "@/lib/definitions/cart.definitions";
 
 export default function cartReducer(state: CartType | undefined, action: CartActions) {
     switch (action.type) {

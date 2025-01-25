@@ -1,7 +1,7 @@
 import {type ClassValue, clsx} from "clsx"
 import {twMerge} from "tailwind-merge"
-import {AddressType} from "@/lib/definitions/customer";
-import {CartDeliveryAddressType, CartType} from "@/lib/definitions/cart";
+import {AddressType} from "@/lib/definitions/customer.definitions";
+import {CartDeliveryAddressType, CartType} from "@/lib/definitions/cart.definitions";
 import {SearchParamsType} from "@/app/(product)/catalogue/[[...catalogueParams]]/page";
 
 export function cn(...inputs: ClassValue[]) {

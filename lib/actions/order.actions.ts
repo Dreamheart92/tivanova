@@ -6,8 +6,8 @@ import {orderCreate} from "@/lib/api/order.api";
 import {cartLinesRemove} from "@/lib/api/cart.api";
 import {revalidateTag} from "next/cache";
 import {TAGS} from "@/lib/constants/tags";
-import {CartType} from "@/lib/definitions/cart";
-import {OrderType} from "@/lib/definitions/order";
+import {CartType} from "@/lib/definitions/cart.definitions";
+import {OrderType} from "@/lib/definitions/order.definitions";
 
 const generateCreateOrderResponse = (message: string | null, success: boolean, order?: OrderType) => ({
     message,

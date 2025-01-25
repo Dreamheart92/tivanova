@@ -1,4 +1,4 @@
-import {OrderLineItemType} from "@/lib/definitions/order";
+import {OrderLineItemType} from "@/lib/definitions/order.definitions";
 import Image from "next/image";
 
 export default function ItemCard({item}: { item: OrderLineItemType }) {

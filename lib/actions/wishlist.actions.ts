@@ -4,7 +4,7 @@ import {createWishlist, fetchWishlist, updateRemoteWishlist} from "@/lib/api/wis
 import {cookies} from "next/headers";
 import {revalidateTag} from "next/cache";
 import {TAGS} from "@/lib/constants/tags";
-import {FeaturedProductType} from "@/lib/definitions/product";
+import {FeaturedProductType} from "@/lib/definitions/product.definitions";
 
 export const createWishlistAndStoreCookie = async (customerId?: string, lines?: string[]) => {
     const wishlist = await createWishlist(customerId, lines);

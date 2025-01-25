@@ -1,5 +1,5 @@
-import {CartCostType, CartProductType, CartType} from "@/lib/definitions/cart";
-import {AddressType} from "@/lib/definitions/customer";
+import {CartCostType, CartProductType, CartType} from "@/lib/definitions/cart.definitions";
+import {AddressType} from "@/lib/definitions/customer.definitions";
 
 type OrderDetailsType = {
     lines: CartProductType[];

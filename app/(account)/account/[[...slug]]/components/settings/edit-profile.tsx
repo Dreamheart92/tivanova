@@ -12,7 +12,7 @@ import {Button} from "@/components/ui/button";
 import EditProfileForm from "@/app/(account)/account/[[...slug]]/components/settings/forms/edit-profile-form";
 import {Separator} from "@/components/ui/separator";
 import {useState} from "react";
-import {CustomerType} from "@/lib/definitions/customer";
+import {CustomerType} from "@/lib/definitions/customer.definitions";
 
 export default function EditProfile({customer}: { customer: CustomerType }) {
     const [open, setOpen] = useState(false);

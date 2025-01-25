@@ -1,11 +1,11 @@
 'use client';
 
 import {createContext, use, useContext, useMemo, useOptimistic, useState} from "react";
-import {AddressType, CustomerType} from "@/lib/definitions/customer";
+import {AddressType, CustomerType} from "@/lib/definitions/customer.definitions";
 import {useCart} from "@/lib/context/cart";
-import {CartDeliveryOptionType} from "@/lib/definitions/cart";
+import {CartDeliveryOptionType} from "@/lib/definitions/cart.definitions";
 import {generateAddressData} from "@/lib/utils/utils";
-import {OrderType} from "@/lib/definitions/order";
+import {OrderType} from "@/lib/definitions/order.definitions";
 
 type CheckoutContextStateType = {
     currentView: number;

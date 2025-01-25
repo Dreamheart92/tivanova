@@ -1,4 +1,4 @@
-import {CustomerType} from "@/lib/definitions/customer";
+import {CustomerType} from "@/lib/definitions/customer.definitions";
 import ChangePassword from "@/app/(account)/account/[[...slug]]/components/settings/change-password";
 import DeliveryAddress from "@/app/(account)/account/[[...slug]]/components/settings/delivery-address";
 import MyDetails from "@/app/(account)/account/[[...slug]]/components/settings/my-details";

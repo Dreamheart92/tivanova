@@ -1,5 +1,5 @@
 import {SHOPIFY_ERRORS} from "@/lib/constants/errors";
-import {ReshapedErrorType, ShopifyErrorType} from "@/lib/definitions/error";
+import {ReshapedErrorType, ShopifyErrorType} from "@/lib/definitions/error.definitions";
 
 export const reshapeShopifyError = (errors: ShopifyErrorType[]) => {
     return errors.reduce<ReshapedErrorType>((accumulator, error) => {
