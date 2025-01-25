@@ -1,9 +1,12 @@
 'use server';
 
 import {
-    addToCart, cartBuyerIdentityUpdate,
+    addToCart,
+    cartBuyerIdentityUpdate,
     cartDeliveryAddressesAdd,
-    cartDeliveryAddressesUpdate, cartLinesRemove, cartSelectedDeliveryOptionsUpdate,
+    cartDeliveryAddressesUpdate,
+    cartLinesRemove,
+    cartSelectedDeliveryOptionsUpdate,
 } from "@/lib/api/cart.api";
 import {revalidateTag} from "next/cache";
 import {TAGS} from "@/lib/constants/tags";
@@ -11,13 +14,14 @@ import {getCartId} from "@/lib/session";
 import {
     shippingAddressSchema,
     ShippingAddressSchemaErrorType,
-    ShippingAddressSchemaType, shippingMethodSchema, ShippingMethodSchemaErrorType, ShippingMethodSchemaType
+    ShippingAddressSchemaType,
+    shippingMethodSchema,
+    ShippingMethodSchemaErrorType,
+    ShippingMethodSchemaType
 } from "@/lib/validations/checkoutSchema";
-import {checkIfAddressExist, parseCustomerData} from "@/lib/utils/utils";
+import {checkIfAddressExist} from "@/lib/utils/utils";
 import {CartType, RemoteCartLineType} from "@/lib/definitions/cart";
 import {InternalErrorType} from "@/lib/definitions/error";
-import {fetchCustomerData} from "@/lib/api/customer.api";
-import {cookies} from "next/headers";
 
 export const addItem = async (prevState: any, lines: RemoteCartLineType[] | undefined) => {
     if (!lines) {
@@ -198,7 +202,3 @@ export const selectDeliveryOption = async (deliveryContext: DeliveryContextType,
 }
 
 
-export const fetchCustomerCartIdAndStoreIt = async (accessToken: string) => {
-    const customer = await fetchCustomerData(accessToken);
-    (await cookies()).set('cartId', customer.cartId);
-}
