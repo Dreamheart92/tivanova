@@ -4,10 +4,9 @@ import {fetchAvailableShippingCountriesQuery, fetchOrderByIdQuery} from "@/lib/a
 import {CreateOrderType, OrderSummaryType, OrderType} from "@/lib/definitions/order";
 import {AvailableShippingCountryType} from "@/lib/definitions/shop";
 import {orderCreateMutation} from "@/lib/api/mutations/order";
-import {hasShopifyUserError} from "@/lib/utils/utils";
-import {removeEdgesAndNodes} from "@/lib/utils/product.utils";
 import {fetchCustomerOrdersQuery} from "@/lib/api/queries/customer";
 import {adminFetcher, clientFetcher} from "@/lib/api/shopify";
+import {hasShopifyUserError, removeEdgesAndNodes} from "@/lib/utils/shopify";
 
 export const orderCreate = async (order: CreateOrderType): Promise<OrderType> => {
     const data = await adminFetcher(orderCreateMutation, {
