@@ -33,6 +33,11 @@ export const transferGuestWishlistToCustomer = async (customerWishlistId: string
 
 export const updateWishlistAction = async (wishlist: string[]) => {
     const wishlistId = await getWishlistId();
+
+    if (!wishlistId) {
+        return undefined;
+    }
+
     await updateRemoteWishlist(wishlistId, wishlist);
     revalidateTag(TAGS.WISHLIST);
 }
