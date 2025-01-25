@@ -12,7 +12,7 @@ export const fetchProductByIdQuery = `
 
 export const fetchLatestProductsQuery = `
  query MyQuery @inContext(country: ${QUERY.COUNTRY_ISO_REPLACEMENT_KEY}){
-  products(first: 4, sortKey: CREATED_AT, reverse: true) {
+  products(first: 8, sortKey: CREATED_AT, reverse: true) {
    nodes {
     ...featuredProduct
    }
@@ -38,7 +38,7 @@ export const fetchLatestCollectionsQuery = `
 
 export const fetchFeaturedProductsQuery = `
  query MyQuery @inContext(country: ${QUERY.COUNTRY_ISO_REPLACEMENT_KEY}) {
-  products(first: 4, query: "tag:featured") {
+  products(first: 8, query: "tag:featured") {
     nodes {
         ...featuredProduct
     }
