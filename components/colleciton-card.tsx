@@ -14,23 +14,45 @@ export default function CollectionCard({collection}: CollectionCardProps) {
     return (
         <div className='cursor-pointer'>
             <Link href={href}>
-                <div>
-                    <Image
-                        src={collection.image.url}
-                        alt={collection.title}
-                        width={1000}
-                        height={900}
-                        className='max-h-[650px] object-cover'
-                    />
-                </div>
+                <CollectionCardImage imageUrl={collection.image.url} alt={collection.title}/>
+                <CollectionCardDetails title={collection.title} description={collection.description}/>
 
-                <div className='text-center py-4'>
-                    <h4 className='font-bold uppercase'>{collection.title}</h4>
-                    <p className='max-w-[90%] mx-auto'>
-                        {collection.description}
-                    </p>
-                </div>
             </Link>
+        </div>
+    )
+}
+
+type CollectionCardImageProps = {
+    imageUrl: string;
+    alt: string;
+}
+
+const CollectionCardImage = ({imageUrl, alt}: CollectionCardImageProps) => {
+    return (
+        <div>
+            <Image
+                src={imageUrl}
+                alt={alt}
+                width={1000}
+                height={900}
+                className='max-h-[650px] object-cover'
+            />
+        </div>
+    )
+}
+
+type CollectionCardDetailsProps = {
+    title: string;
+    description: string;
+}
+
+const CollectionCardDetails = ({title, description}: CollectionCardDetailsProps) => {
+    return (
+        <div className='text-center py-4'>
+            <h4 className='font-bold uppercase'>{title}</h4>
+            <p className='max-w-[90%] mx-auto'>
+                {description}
+            </p>
         </div>
     )
 }
