@@ -2,6 +2,7 @@ import ContentContainer from "@/components/ui/content-container";
 import ProductCard from "@/components/product-card";
 import ProductsGrid from "@/components/products-grid";
 import {FeaturedProductType} from "@/lib/definitions/product.definitions";
+import ProductsSlider from "@/components/products-slider";
 
 type Meta = {
     title: string;
@@ -27,11 +28,7 @@ export default function FeaturedProducts({products, meta}: FeaturedProductsProps
         <ContentContainer>
             <div className=''>
                 <SectionMetaData meta={meta}/>
-                <ProductsGrid>
-                    {products.map((product) => (
-                        <ProductCard key={product.id} product={product}/>
-                    ))}
-                </ProductsGrid>
+                <ProductsSlider products={products}/>
             </div>
         </ContentContainer>
     )
