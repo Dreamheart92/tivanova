@@ -1,6 +1,5 @@
 'use server';
 
-import {adminClient} from "@/lib/shopify";
 import {unstable_cache as nextCache} from "next/cache";
 import {cache} from "react";
 import {TAGS} from "@/lib/constants/tags";
@@ -39,11 +38,7 @@ export const createWishlist = async (customerId: string = '', lines: string[] = 
     }
 }
 
-export const updateRemoteWishlist = async (wishlistId?: string, lines?: string[]) => {
-    //TODO: Remove wishlist and lines checker outside
-
-    if (!wishlistId || !lines) return;
-
+export const updateRemoteWishlist = async (wishlistId: string, lines: string[]) => {
     const data = await adminFetcher(updateRemoteWishlistMutation, {
         id: wishlistId,
         metaobject: {
@@ -58,10 +53,11 @@ export const updateRemoteWishlist = async (wishlistId?: string, lines?: string[]
 }
 
 export const fetchWishlist = nextCache(
-    cache(async (wishlistId?: string) => {
+    cache(async (wishlistId: string | undefined) => {
 
-        //TODO: Add wishlistId checker outside
-        if (!wishlistId) return;
+        if (!wishlistId) {
+            return undefined;
+        }
 
         const data = await adminFetcher(fetchWishlistQuery, {
             id: wishlistId,
