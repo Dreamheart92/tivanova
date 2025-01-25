@@ -1,15 +1,11 @@
-import {clsx, type ClassValue} from "clsx"
+import {type ClassValue, clsx} from "clsx"
 import {twMerge} from "tailwind-merge"
 import {AddressType} from "@/lib/definitions/customer";
 import {CartDeliveryAddressType, CartType} from "@/lib/definitions/cart";
+import {SearchParamsType} from "@/app/(product)/catalogue/[[...catalogueParams]]/page";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
-}
-
-export const extractShopifyId = (shopifyString: string) => {
-    const chunks = shopifyString.split("/");
-    return chunks[chunks.length - 1];
 }
 
 export const resolveImageSize = (index: number) => {
@@ -36,29 +32,7 @@ export const reshapeCustomer = (customerData: any) => ({
     wishlistId: findMetaFieldValue('wishlistId', customerData.metafields) as string,
 })
 
-export const parseCustomerData = (data: any, accessToken: string) => {
-    const cartId = findMetaFieldValue('cartId', data.metafields) as string;
-    const wishlistId = findMetaFieldValue('wishlistId', data.metafields) as string;
-
-    return {
-        id: data.id,
-        email: data.email,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        phone: data.phone,
-        token: accessToken,
-        cartId,
-        wishlistId,
-    }
-}
-
 export const normalizeName = (name: string) => name[0].toUpperCase() + name.slice(1).toLowerCase();
-
-export const hasShopifyUserError = (data: any) => {
-    const hasError = data?.length > 0;
-
-    return hasError ? data : false;
-}
 
 export const isNewDeliveryAddress = (newDeliveryAddress: AddressType, selectedDeliveryAddress?: AddressType) => {
     if (!selectedDeliveryAddress) return true;
@@ -91,3 +65,13 @@ export const generateAddressData = (cart: CartType | undefined) => ({
     city: cart?.delivery?.selectedDeliveryAddress?.address?.city || '',
     phone: cart?.delivery?.selectedDeliveryAddress?.address?.phone || '',
 })
+
+export const parseSearchQuery = (search: SearchParamsType): string[] => {
+    return Object.values((search)).reduce((a: string[], b: string) => {
+        b.split('|').forEach((query: string) => {
+            a.push(JSON.parse(query));
+        })
+
+        return a;
+    }, [])
+}
