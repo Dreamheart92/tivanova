@@ -8,13 +8,13 @@ import {Button} from "@/components/ui/button";
 import {PATHS} from "@/lib/constants/paths";
 import {useRouter} from "next/navigation";
 import {useActionState, useEffect} from "react";
-import {createCartAndStoreCookie} from "@/lib/utils/cart.utils";
-import {fetchCustomerCartIdAndStoreIt, removeFromCart} from "@/lib/actions/cart.actions";
+import {removeFromCart} from "@/lib/actions/cart.actions";
 import Link from "next/link";
 import {useShop} from "@/lib/context/shop";
 import {CartProductType} from "@/lib/definitions/cart";
 import ErrorMessage from "@/app/(auth)/components/error-message";
 import {CustomerType} from "@/lib/definitions/customer";
+import {createCartAndStoreCookie, fetchCustomerCartIdAndStoreAsCookie} from "@/lib/utils/server/customer";
 
 export default function Cart({session}: { session: CustomerType | null }) {
     const {cart, open, closeCart} = useCart();
@@ -22,7 +22,7 @@ export default function Cart({session}: { session: CustomerType | null }) {
     useEffect(() => {
         if (!cart) {
             if (session) {
-                fetchCustomerCartIdAndStoreIt(session.token);
+                fetchCustomerCartIdAndStoreAsCookie(session.token);
             } else {
                 createCartAndStoreCookie();
             }
