@@ -4,8 +4,8 @@ import Image from "next/image";
 import {useState} from "react";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
-import {extractShopifyId} from "@/lib/utils/utils";
 import {FeaturedProductType} from "@/lib/definitions/product";
+import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
 
 type ProductCardProps = {
     product: FeaturedProductType;
@@ -20,7 +20,7 @@ export default function ProductCard({product, width = 500, height = 500, maxHeig
     return (
         <div
             className="relative text-[1.6em] md:text-[1.2em] lg:text-[1em] cursor-pointer">
-            <Link href={PATHS.PRODUCT_DETAILS(extractShopifyId(product.id))}>
+            <Link href={PATHS.PRODUCT_DETAILS(extractShopifyIdFromGID(product.id))}>
                 <div
                     className="relative"
                     onMouseEnter={() => setIsHovered(true)}
