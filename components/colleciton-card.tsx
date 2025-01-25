@@ -9,9 +9,11 @@ type CollectionCardProps = {
 }
 
 export default function CollectionCard({collection}: CollectionCardProps) {
+    const href = `${PATHS.COLLECTION}/${extractShopifyIdFromGID(collection.id)}`
+
     return (
         <div className='cursor-pointer'>
-            <Link href={`${PATHS.COLLECTION}/${extractShopifyIdFromGID(collection.id)}`}>
+            <Link href={href}>
                 <div>
                     <Image
                         src={collection.image.url}
