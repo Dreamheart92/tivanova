@@ -2,12 +2,11 @@ import {
     fetchCustomerDataQuery,
 } from "@/lib/api/queries/customer";
 import {storeCartAndWishlistIdsToCustomerMutation, updateCustomerMutation} from "@/lib/api/mutations/customer";
-import {reshapeShopifyError} from "@/lib/utils/error.utils";
-import {hasShopifyUserError, reshapeCustomer} from "@/lib/utils/utils";
+import {reshapeShopifyError} from "@/lib/utils/error";
+import {reshapeCustomer} from "@/lib/utils/utils";
 import {ShopifyError} from "@/lib/errors/ShopifyError";
 import {adminFetcher, clientFetcher} from "@/lib/api/shopify";
-
-//TODO: Handle error
+import {hasShopifyUserError} from "@/lib/utils/shopify";
 
 export const fetchCustomerData = async (accessToken: string) => {
     const data = await clientFetcher(fetchCustomerDataQuery, {
