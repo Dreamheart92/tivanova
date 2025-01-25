@@ -5,6 +5,7 @@ import ProductList from "@/app/(product)/catalogue/[[...catalogueParams]]/compon
 import FiltersPanel from "@/app/(product)/catalogue/[[...catalogueParams]]/components/filters-panel";
 import {Suspense} from "react";
 import {CatalogueSkeleton} from "@/components/skeletons";
+import {parseSearchQuery} from "@/lib/utils/utils";
 
 const pageSettings = {
     announcementBanner: {
@@ -16,7 +17,7 @@ const pageSettings = {
     }
 }
 
-type SearchParamsType = {
+export type SearchParamsType = {
     brand?: string,
     color?: string,
     size?: string,
@@ -30,7 +31,8 @@ type CatalogueProps = {
 
 const CatalogueWrapper = async ({search}: { search: SearchParamsType }) => {
     try {
-        const {products, filters} = await fetchCatalogueProducts(search);
+        const searchQuery = parseSearchQuery(search);
+        const {products, filters} = await fetchCatalogueProducts(searchQuery);
 
         return (
             <ContentContainer>
