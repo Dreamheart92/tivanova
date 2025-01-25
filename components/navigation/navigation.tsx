@@ -1,6 +1,6 @@
 import DesktopNavigation from "@/components/navigation/desktop-navigation";
 import MobileNavigation from "@/components/navigation/mobile-navigation";
-import {getSession} from "@/lib/session";
+import {getSession} from "@/lib/utils/server/session.utils";
 import NavigationWrapper from "@/components/navigation/navigation-wrapper";
 
 export default async function Navigation() {

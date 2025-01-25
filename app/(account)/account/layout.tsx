@@ -1,6 +1,6 @@
 import Navigation from "@/app/(account)/account/[[...slug]]/components/navigation";
 import Banner from "@/app/(account)/account/[[...slug]]/components/banner";
-import {getSession} from "@/lib/session";
+import {getSession} from "@/lib/utils/server/session.utils";
 import {notFound} from "next/navigation";
 import ContentContainer from "@/components/ui/content-container";
 

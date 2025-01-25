@@ -1,6 +1,6 @@
 'use server';
 
-import {getCartId, getSession} from "@/lib/session";
+import {getCartId, getSession} from "@/lib/utils/server/session.utils";
 import {shapeOrder} from "@/lib/utils/order.utils";
 import {orderCreate} from "@/lib/api/order.api";
 import {cartLinesRemove} from "@/lib/api/cart.api";

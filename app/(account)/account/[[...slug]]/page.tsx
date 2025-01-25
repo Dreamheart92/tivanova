@@ -1,4 +1,4 @@
-import {getSession} from "@/lib/session";
+import {getSession} from "@/lib/utils/server/session.utils";
 import {notFound} from "next/navigation";
 import Orders from "@/app/(account)/account/[[...slug]]/components/orders/orders";
 import Settings from "@/app/(account)/account/[[...slug]]/components/settings/settings";

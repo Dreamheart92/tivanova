@@ -4,7 +4,7 @@ import Navigation from "@/components/navigation/navigation";
 import "./globals.css";
 import CartProvider from "@/lib/context/cart";
 import Cart from "@/components/cart";
-import {getCartId, getSession} from "@/lib/session";
+import {getCartId, getSession} from "@/lib/utils/server/session.utils";
 import {fetchCart} from "@/lib/api/cart.api";
 import WishlistProvider from "@/lib/context/wishlist";
 import {Toaster} from "@/components/ui/toaster";

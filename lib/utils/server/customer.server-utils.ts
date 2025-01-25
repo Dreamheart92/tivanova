@@ -5,7 +5,7 @@ import {SETTINGS} from "@/settings";
 import {fetchCustomerData} from "@/lib/api/customer.api";
 import {RemoteCartLineType} from "@/lib/definitions/cart.definitions";
 import {createCart} from "@/lib/api/cart.api";
-import {createCartIdCookie} from "@/lib/session";
+import {createCartIdCookie} from "@/lib/utils/server/session.utils";
 
 export const getCountryIsoBasedOnIp = async (customerIp: string) => {
     const response = await fetch(`https://get.geojs.io/v1/ip/country/${customerIp}.json`);

@@ -10,7 +10,7 @@ import {
 } from "@/lib/api/cart.api";
 import {revalidateTag} from "next/cache";
 import {TAGS} from "@/lib/constants/tags";
-import {getCartId} from "@/lib/session";
+import {getCartId} from "@/lib/utils/server/session.utils";
 import {
     shippingAddressSchema,
     ShippingAddressSchemaErrorType,

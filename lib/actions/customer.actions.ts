@@ -8,7 +8,7 @@ import {
     UpdateCustomerSchemaErrorType,
     UpdateCustomerSchemaType
 } from "@/lib/validations/accountSchema";
-import {getSession, updateCustomerAccessToken, updateCustomerSession} from "@/lib/session";
+import {getSession, updateCustomerAccessToken, updateCustomerSession} from "@/lib/utils/server/session.utils";
 import {updateCustomer} from "@/lib/api/customer.api";
 import {isRedirectError} from "next/dist/client/components/redirect-error";
 import {createCustomerAccessToken} from "@/lib/api/auth.api";

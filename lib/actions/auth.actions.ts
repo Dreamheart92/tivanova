@@ -6,7 +6,7 @@ import {
     deleteCartIdCookie,
     deleteSession,
     getSession,
-} from "@/lib/session";
+} from "@/lib/utils/server/session.utils";
 import {isRedirectError} from "next/dist/client/components/redirect-error";
 import {createCustomer, createCustomerAccessToken, deleteCustomerAccessToken} from "@/lib/api/auth.api";
 import {redirect} from "next/navigation";
