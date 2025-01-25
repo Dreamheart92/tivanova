@@ -1,12 +1,9 @@
 'use server';
 
-import {client} from "@/lib/shopify";
-import {getCartId} from "@/lib/session";
 import {unstable_cache as nextCache} from 'next/cache';
 import {cache} from "react";
 import {AddressType} from "@/lib/definitions/customer";
 import {TAGS} from "@/lib/constants/tags";
-import {reshapeCart} from "@/lib/utils/cart.utils";
 import {fetchCartQuery} from "@/lib/api/queries/cart";
 import {
     addToCartMutation, cartBuyerIdentityMutation,
@@ -16,10 +13,8 @@ import {
     createCartMutation,
 } from "@/lib/api/mutations/cart";
 import {BuyerIdentityType, CartDeliveryAddressType, RemoteCartLineType} from "@/lib/definitions/cart";
-import {hasShopifyUserError} from "@/lib/utils/utils";
 import {clientFetcher} from "@/lib/api/shopify";
-
-//TODO: Handle fetch cart error
+import {hasShopifyUserError, reshapeCart} from "@/lib/utils/shopify";
 
 export const fetchCart = nextCache(
     cache(async (cartId: string | undefined) => {
@@ -43,20 +38,26 @@ export const fetchCart = nextCache(
     }
 )
 
-//TODO: Handle createCart error
-
 export const createCart = async (accessToken: string | undefined, lines: RemoteCartLineType[] | undefined, countryISO: string) => {
-    const data = await clientFetcher(createCartMutation, {
-        input: {
-            buyerIdentity: {
-                customerAccessToken: accessToken,
-                countryCode: countryISO,
+    try {
+        const data = await clientFetcher(createCartMutation, {
+            input: {
+                buyerIdentity: {
+                    customerAccessToken: accessToken,
+                    countryCode: countryISO,
+                },
+                lines,
             },
-            lines,
-        },
-    })
+        })
 
-    return data.cartCreate.cart.id;
+        if (hasShopifyUserError(data?.userErrors)) {
+            throw data.userErrors;
+        }
+
+        return data.cartCreate.cart.id;
+    } catch (error) {
+        return undefined;
+    }
 }
 
 export const addToCart = async (lines: RemoteCartLineType[], cartId: string) => {
