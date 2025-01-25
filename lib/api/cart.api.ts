@@ -14,7 +14,7 @@ import {
 } from "@/lib/api/mutations/cart";
 import {BuyerIdentityType, CartDeliveryAddressType, RemoteCartLineType} from "@/lib/definitions/cart.definitions";
 import {clientFetcher} from "@/lib/api/shopify";
-import {hasShopifyUserError, reshapeCart} from "@/lib/utils/shopify";
+import {hasShopifyUserError, reshapeCart} from "@/lib/utils/shopify.utils";
 
 export const fetchCart = nextCache(
     cache(async (cartId: string | undefined) => {

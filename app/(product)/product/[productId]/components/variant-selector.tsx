@@ -1,7 +1,7 @@
 'use client';
 
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-import {findVariantByColor, organizeProductVariants} from "@/lib/utils/product";
+import {findVariantByColor, organizeProductVariants} from "@/lib/utils/product.utils";
 import {Button} from "@/components/ui/button";
 import {useState} from "react";
 import {useProduct} from "@/lib/context/product";

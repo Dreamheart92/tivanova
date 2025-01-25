@@ -5,7 +5,7 @@ import {useState} from "react";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
 import {FeaturedProductType} from "@/lib/definitions/product.definitions";
-import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
+import {extractShopifyIdFromGID} from "@/lib/utils/shopify.utils";
 import {ImageType} from "@/lib/definitions/definitions";
 import {clsx} from "clsx";
 import {CostType} from "@/lib/definitions/cart.definitions";

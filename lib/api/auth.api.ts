@@ -4,9 +4,9 @@ import {
     deleteCustomerAccessTokenMutation
 } from "@/lib/api/mutations/auth";
 import {ShopifyError} from "@/lib/errors/ShopifyError";
-import {reshapeShopifyError} from "@/lib/utils/error";
+import {reshapeShopifyError} from "@/lib/utils/error.utils";
 import {clientFetcher} from "@/lib/api/shopify";
-import {hasShopifyUserError} from "@/lib/utils/shopify";
+import {hasShopifyUserError} from "@/lib/utils/shopify.utils";
 
 type CustomerData = {
     email: string;

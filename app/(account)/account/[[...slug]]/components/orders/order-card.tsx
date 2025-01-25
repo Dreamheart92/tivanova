@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button";
 import {PATHS} from "@/lib/constants/paths";
 import Link from "next/link";
 
-import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
+import {extractShopifyIdFromGID} from "@/lib/utils/shopify.utils";
 
 export default function OrderCard({order}: { order: OrderSummaryType }) {
     const orderQuantity = order.lineItems.reduce((accumulator, line) => accumulator + line.quantity, 0);

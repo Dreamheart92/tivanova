@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
 import type {NextRequest} from "next/server";
-import {getCountryIsoBasedOnIp} from "@/lib/utils/server/customer";
+import {getCountryIsoBasedOnIp} from "@/lib/utils/server/customer.server-utils";
 import {SETTINGS} from "@/settings";
 
 export async function middleware(req: NextRequest) {

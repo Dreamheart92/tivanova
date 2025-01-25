@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
 import {CollectionDetailsType} from "@/lib/definitions/product.definitions";
-import {extractShopifyIdFromGID} from "@/lib/utils/shopify";
+import {extractShopifyIdFromGID} from "@/lib/utils/shopify.utils";
 
 type CollectionCardProps = {
     collection: CollectionDetailsType;

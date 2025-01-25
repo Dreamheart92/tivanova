@@ -10,8 +10,8 @@ import {
 import {FilterType} from "@/lib/definitions/definitions";
 import {clientFetcher} from "@/lib/api/shopify";
 
-import {applyCountryIsoToQuery} from "@/lib/utils/server/shopify";
-import {reshapeCollection, reshapeFeaturedProducts, reshapeProduct} from "@/lib/utils/shopify";
+import {applyCountryIsoToQuery} from "@/lib/utils/server/shopify.server-utils";
+import {reshapeCollection, reshapeFeaturedProducts, reshapeProduct} from "@/lib/utils/shopify.utils";
 
 export const fetchLatestProducts = async (): Promise<FeaturedProductType[]> => {
     const query = await applyCountryIsoToQuery(fetchLatestProductsQuery);

@@ -1,7 +1,7 @@
 'use server';
 
 import {getCartId, getSession} from "@/lib/session";
-import {shapeOrder} from "@/lib/utils/order";
+import {shapeOrder} from "@/lib/utils/order.utils";
 import {orderCreate} from "@/lib/api/order.api";
 import {cartLinesRemove} from "@/lib/api/cart.api";
 import {revalidateTag} from "next/cache";

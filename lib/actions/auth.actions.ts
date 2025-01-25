@@ -28,12 +28,12 @@ import {Wishlist} from "@/lib/context/wishlist";
 import {fetchCustomerData, storeCartAndWishlistIdsToCustomer} from "@/lib/api/customer.api";
 import {
     convertProductToShopifyCartLines, getProductsIds
-} from "@/lib/utils/cart";
+} from "@/lib/utils/cart.utils";
 import {ShopifyError} from "@/lib/errors/ShopifyError";
 import {AuthenticationErrorType, InternalErrorType} from "@/lib/definitions/error.definitions";
 import {CartType} from "@/lib/definitions/cart.definitions";
-import {transferGuestCartToCustomerCart} from "@/lib/utils/server/cart";
-import {createCartAndStoreCookie} from "@/lib/utils/server/customer";
+import {transferGuestCartToCustomerCart} from "@/lib/utils/server/cart.server-utils";
+import {createCartAndStoreCookie} from "@/lib/utils/server/customer.server-utils";
 
 
 export type ExtendedLoginSchemaErrorType = LoginSchemaErrorType & AuthenticationErrorType & InternalErrorType;

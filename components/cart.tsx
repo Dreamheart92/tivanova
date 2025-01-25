@@ -14,7 +14,7 @@ import {useShop} from "@/lib/context/shop";
 import {CartProductType} from "@/lib/definitions/cart.definitions";
 import ErrorMessage from "@/app/(auth)/components/error-message";
 import {CustomerType} from "@/lib/definitions/customer.definitions";
-import {createCartAndStoreCookie, fetchCustomerCartIdAndStoreAsCookie} from "@/lib/utils/server/customer";
+import {createCartAndStoreCookie, fetchCustomerCartIdAndStoreAsCookie} from "@/lib/utils/server/customer.server-utils";
 
 export default function Cart({session}: { session: CustomerType | null }) {
     const {cart, open, closeCart} = useCart();

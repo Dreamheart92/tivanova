@@ -1,6 +1,6 @@
 import {WishlistActionType} from "@/lib/context/wishlist";
 import {FeaturedProductType} from "@/lib/definitions/product.definitions";
-import {removeEdgesAndNodes} from "@/lib/utils/shopify";
+import {removeEdgesAndNodes} from "@/lib/utils/shopify.utils";
 
 export const modifyWishlistProductIds = (type: 'add' | 'remove', wishlistProducts: FeaturedProductType[], productId: string) => {
     const productIds = wishlistProducts.map((product) => product.id);
