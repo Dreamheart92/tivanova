@@ -1,5 +1,5 @@
 import Hero from "@/app/(home)/components/hero";
-import {fetchFeaturedProducts, fetchLatestCollections, fetchLatestProducts} from "@/lib/api/product.api";
+import {fetchFeaturedProducts, fetchCollections, fetchLatestProducts} from "@/lib/api/product.api";
 import FeaturedProducts from "@/components/featured-products";
 import FeaturedCollections from "@/app/(home)/components/featured-collections";
 import FeaturedCollection from "@/app/(home)/components/featured-collection";
@@ -63,7 +63,9 @@ const FeaturedWrapper = async () => {
 
 const CollectionsWrapper = async () => {
     try {
-        const collections = await fetchLatestCollections();
+        const collections = await fetchCollections({
+            first: '3',
+        });
 
         return <FeaturedCollections collections={collections}/>
     } catch (error) {
