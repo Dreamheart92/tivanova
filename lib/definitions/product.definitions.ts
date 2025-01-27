@@ -64,6 +64,12 @@ export type CollectionDetailsType = {
         url: string;
     }
     description: string;
+    backdropImage: {
+        id: string;
+        previewImage: {
+            url: string;
+        }
+    }
 }
 export type VariantType = {
     color: string;
