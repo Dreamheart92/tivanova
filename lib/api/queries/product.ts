@@ -23,11 +23,21 @@ ${featuredProductFragment}
 
 export const fetchLatestCollectionsQuery = `
     query MyQuery {
-  collections(first: 3) {
+  collections(first: ${QUERY.FIRST_LIMIT_KEY}) {
     nodes {
       title
       id
       description
+          metafield(key: "backdropimage", namespace: "custom") {
+      reference {
+        ... on MediaImage {
+          id
+          previewImage {
+            url
+          }
+        }
+      }
+    }
       image {
         url
       }
