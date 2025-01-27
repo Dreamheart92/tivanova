@@ -17,7 +17,7 @@ const navigationItems = {
     },
     journal: {
         title: 'Journal',
-        href: PATHS.JOURNAL,
+        href: PATHS.JOURNALS,
     }
 }
 
