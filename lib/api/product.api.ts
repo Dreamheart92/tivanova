@@ -1,4 +1,9 @@
-import {CollectionDetailsType, CollectionType, FeaturedProductType, ProductType} from "@/lib/definitions/product.definitions";
+import {
+    CollectionDetailsType,
+    CollectionType,
+    FeaturedProductType,
+    ProductType
+} from "@/lib/definitions/product.definitions";
 import {
     catalogueProductsQuery, fetchCollectionQuery,
     fetchFeaturedProductsQuery,
@@ -12,6 +17,7 @@ import {clientFetcher} from "@/lib/api/shopify";
 
 import {applyCountryIsoToQuery} from "@/lib/utils/server/shopify.server-utils";
 import {reshapeCollection, reshapeFeaturedProducts, reshapeProduct} from "@/lib/utils/shopify.utils";
+import {QUERY} from "@/lib/constants/query";
 
 export const fetchLatestProducts = async (): Promise<FeaturedProductType[]> => {
     const query = await applyCountryIsoToQuery(fetchLatestProductsQuery);
@@ -20,9 +26,14 @@ export const fetchLatestProducts = async (): Promise<FeaturedProductType[]> => {
     return reshapeFeaturedProducts(data.products);
 }
 
-export const fetchLatestCollections = async (): Promise<CollectionDetailsType[]> => {
-    const data = await clientFetcher(fetchLatestCollectionsQuery);
-    return data.collections.nodes;
+export const fetchCollections = async ({first = '250'}: { first?: string } = {}): Promise<CollectionDetailsType[]> => {
+    const query = fetchLatestCollectionsQuery.replace(QUERY.FIRST_LIMIT_KEY, first);
+    const data = await clientFetcher(query);
+
+    return data.collections.nodes.map((collection: any) => ({
+        ...collection,
+        backdropImage: collection.metafield.reference,
+    }));
 }
 
 export const fetchProductById = async (productId: string): Promise<ProductType> => {
