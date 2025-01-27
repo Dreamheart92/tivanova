@@ -82,7 +82,7 @@ export default function WishlistProvider({wishlistPromise, children}: WishlistPr
         setTimeout(() => {
             toast({
                 description: description,
-                className: 'bg-stone-900 text-stone-200',
+                className: '!bg-stone-900 text-white',
                 duration: 2000,
             })
         }, 0)
