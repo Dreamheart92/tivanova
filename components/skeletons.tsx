@@ -204,3 +204,86 @@ export const CollectionSkeleton = ({error}: { error?: boolean }) => {
         </ContentContainer>
     )
 }
+
+const CollectionPageCard = ({hasError}: { hasError?: boolean }) => {
+    const boxStyle = 'w-[1200px] h-[500px] rounded-none';
+
+    return hasError ? <ErrorSkeleton className={boxStyle}/> : <Skeleton className={boxStyle}/>
+}
+
+export const CollectionsSkeleton = ({hasError}: { hasError?: boolean }) => {
+    return (
+        <ContentContainer>
+            <div className='flex flex-col justify-center items-center gap-4'>
+                <CollectionPageCard hasError={hasError}/>
+                <CollectionPageCard hasError={hasError}/>
+                <CollectionPageCard hasError={hasError}/>
+            </div>
+        </ContentContainer>
+    )
+}
+
+const JournalCardSkeleton = ({hasError}: { hasError?: boolean }) => {
+    const boxStyle = 'rounded-none w-[500px] h-[350px]';
+
+    const Box = hasError ? <ErrorSkeleton className={boxStyle}/> : <Skeleton className={boxStyle}/>
+
+    return (
+        <div>
+            {Box}
+            <Skeleton className='w-[24em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[0.5em] rounded-none mt-2'/>
+            <Skeleton className='w-[6em] h-[1em] rounded-none mt-2'/>
+        </div>
+    )
+}
+
+export const JournalsSkeleton = ({hasError}: { hasError?: boolean }) => {
+    return (
+        <ContentContainer>
+            <div className='pt-12 grid grid-cols-3 gap-y-4'>
+                <JournalCardSkeleton hasError={hasError}/>
+                <JournalCardSkeleton hasError={hasError}/>
+                <JournalCardSkeleton hasError={hasError}/>
+                <JournalCardSkeleton hasError={hasError}/>
+                <JournalCardSkeleton hasError={hasError}/>
+                <JournalCardSkeleton hasError={hasError}/>
+            </div>
+        </ContentContainer>
+    )
+}
+
+const TextSkeleton = () => {
+    return (
+        <div className='flex flex-wrap gap-x-2 pb-4'>
+            <Skeleton className='w-[24em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[7em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[4em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[15em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[8em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[15em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[8em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[12em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[15em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[7em] h-[1em] rounded-none mt-2'/>
+            <Skeleton className='w-[4em] h-[1em] rounded-none mt-2'/>
+        </div>
+    )
+}
+
+export const JournalSkeleton = () => {
+    return (
+        <div className='max-w-screen-xl mx-auto'>
+            <Skeleton className='rounded-none max-w-screen-xl w-full h-[750px]'/>
+            <TextSkeleton/>
+            <TextSkeleton/>
+            <Skeleton className='rounded-none max-w-screen-xl w-full h-[750px]'/>
+        </div>
+    )
+}
