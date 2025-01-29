@@ -13,11 +13,15 @@ type ProductsSliderProps = {
 export default function ProductsSlider({products}: ProductsSliderProps) {
     return (
         <Swiper
-            slidesPerView={4}
+            slidesPerView={2}
             spaceBetween={15}
             loop={true}
             className='mySwiper'
             grabCursor={true}
+            breakpoints={{
+                640: {slidesPerView: 3},
+                1024: {slidesPerView: 4},
+            }}
         >
             {products.map((product) => (
                 <SwiperSlide key={product.id}>
