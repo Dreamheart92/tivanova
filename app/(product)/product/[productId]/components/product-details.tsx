@@ -26,9 +26,9 @@ type ProductDetailsProps = {
 
 export default function ProductDetails({product, settings}: ProductDetailsProps) {
     return (
-        <div className='pt-[5em] basis-[30%] flex flex-col gap-4'>
+        <div className='p-4 md:p-0 md:pt-[5em] w-full md:basis-[30%] flex flex-col gap-4 text-sm md:text-base'>
             <div>
-                <div className='flex justify-between items-center'>
+                <div className='flex flex-col md:flex-row md:justify-between md:items-center'>
                     <h3>{product.title}</h3>
                     <p>{Number(product.priceRange.minVariantPrice.amount).toFixed(2)} {product.priceRange.minVariantPrice.currencyCode}</p>
                 </div>
