@@ -3,13 +3,13 @@ import Image from "next/image";
 export default function Layout({children}: { children: React.ReactNode }) {
     return (
         <div className='flex'>
-            <div className='basis-1/2 flex justify-center items-center flex-col'>
-                <div className='w-[70%]'>
+            <div className='w-full md:basis-1/2 flex-shrink-0 flex justify-center items-center flex-col'>
+                <div className='w-full p-4 md:w-[70%] text-sm md:text-base'>
                     {children}
                 </div>
             </div>
 
-            <div>
+            <div className='hidden md:block'>
                 <Image
                     src='/auth.webp'
                     alt='Womens eating cherries'
