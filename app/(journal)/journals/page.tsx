@@ -20,14 +20,22 @@ const ArticleCard = ({article}: { article: ArticleShortType }) => {
     const href = `${PATHS.JOURNAL}/${extractShopifyIdFromGID(article.id)}`;
 
     return (
-        <div className='max-w-[500px]'>
+        <div className=''>
             <Link href={href}>
-                <Image src={article.image.url} alt={article.title} width={500} height={300}
-                       className='min-h-[350px] object-cover'/>
-                <h3 className='py-2'>{article.title}</h3>
-                <p>{article.content}</p>
+                <Image
+                    src={article.image.url}
+                    alt={article.title}
+                    width={500}
+                    height={500}
+                    className='object-cover aspect-[500/300] md:aspect-[600/400]'
+                />
             </Link>
-            <p className='mt-2 underline'><Link href={href} className=''>Read more</Link></p>
+
+            <div className='md:max-w-[80%] p-2 md:p-0 text-sm md:text-base'>
+                <h3 className='pb-1 md:py-2'>{article.title}</h3>
+                <p>{article.content}</p>
+                <p className='mt-2 underline'><Link href={href} className=''>Read more</Link></p>
+            </div>
         </div>
     )
 }
@@ -38,7 +46,7 @@ const ArticlesWrapper = async () => {
 
         return (
             <ContentContainer>
-                <div className='pt-12 grid grid-cols-3'>
+                <div className='pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                     {articles.map((article) => (
                         <ArticleCard key={article.id} article={article}/>
                     ))}
