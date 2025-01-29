@@ -19,7 +19,7 @@ const IconWrapper = ({Icon, href}: IconWrapperProps) => {
     return (
         <NavigationMenuItem>
             <Link href={href}>
-                <Icon width={ICON_WIDTH} cursor='pointer'/>
+                <Icon className='w-5 h-5 lg:w-4 lg:h-4' cursor='pointer'/>
             </Link>
         </NavigationMenuItem>
     )
