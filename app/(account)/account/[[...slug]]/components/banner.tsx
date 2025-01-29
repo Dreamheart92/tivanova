@@ -14,7 +14,7 @@ export default function Banner({firstName, lastName}: BannerProps) {
                 alt='Women walking'
                 width={1920}
                 height={500}
-                className='max-h-[400px] object-cover object-[50%_30%] brightness-50'
+                className='object-cover object-[50%_30%] brightness-50 aspect-[500/500] lg:aspect-[500/115]'
             />
 
             <div className='absolute top-1/2 -translate-y-1/2 w-full text-center'>
