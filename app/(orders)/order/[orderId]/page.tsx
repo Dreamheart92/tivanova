@@ -9,9 +9,9 @@ export default async function Order({params}: { params: Promise<{ orderId: strin
     const order = await fetchOrderById(orderId);
 
     return (
-        <div className=''>
-            <div className='max-w-screen-sm mx-auto pt-8'>
-                <h2 className='pb-8 text-center'>Order summary</h2>
+        <div className='text-sm md:text-base'>
+            <div className='max-w-screen-sm mx-auto pt-8 bg-white'>
+                <h2 className='md:pb-8 pl-5 md:pl-0 md:text-center'>Order summary</h2>
                 <div className='w-full flex flex-col gap-4'>
                     <Items items={order.lineItems}/>
                     <DeliveryAddress deliveryAddress={order.displayAddress}/>
