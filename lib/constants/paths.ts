@@ -12,6 +12,7 @@ export const PATHS = {
     WISHLIST: '/wishlist',
     CHECKOUT: '/checkout',
     ORDER: '/order',
+    ORDERS: '/account/orders',
     ACCOUNT_NAVIGATION: {
         SETTINGS: '/account/settings',
     }
