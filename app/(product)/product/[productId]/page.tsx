@@ -1,10 +1,10 @@
 import {fetchProductById} from "@/lib/api/product.api";
 import {notFound} from "next/navigation";
 import {ProductSkeleton} from "@/components/skeletons";
-import ProductGallery from "@/app/(product)/product/[productId]/components/product-gallery";
 import ProductDetails from "@/app/(product)/product/[productId]/components/product-details";
 import {Suspense} from "react";
 import ProductProvider from "@/lib/context/product";
+import ProductGallery from "@/app/(product)/product/[productId]/components/product-gallery";
 
 const pageSettings = {
     scrollCaption: 'Scroll for more',
@@ -34,7 +34,7 @@ const ProductWrapper = async ({productId}: { productId: string }) => {
     }
 
     return (
-        <div className='flex'>
+        <div className='flex flex-wrap md:flex-nowrap md:gap-6 2xl:gap-0'>
             <ProductGallery images={product.images} scrollCaption={pageSettings.scrollCaption}/>
             <ProductDetails
                 settings={pageSettings.productDetails}
