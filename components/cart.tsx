@@ -9,7 +9,6 @@ import {PATHS} from "@/lib/constants/paths";
 import {useRouter} from "next/navigation";
 import {useActionState, useEffect} from "react";
 import {removeFromCart} from "@/lib/actions/cart.actions";
-import Link from "next/link";
 import {useShop} from "@/lib/context/shop";
 import {CartProductType} from "@/lib/definitions/cart.definitions";
 import ErrorMessage from "@/app/(auth)/components/error-message";
@@ -33,9 +32,10 @@ export default function Cart({session}: { session: CustomerType | null }) {
 
     return (
         <Sheet open={open} onOpenChange={closeCart}>
-            <SheetContent className='overflow-y-scroll flex flex-col p-0 gap-0 sm:max-w-[470px]'>
+            <SheetContent
+                className='overflow-y-scroll flex flex-col p-0 gap-0 w-full md:max-w-[470px] text-sm md:text-base'>
                 <SheetHeader className='p-4'>
-                    <SheetTitle>Cart</SheetTitle>
+                    <SheetTitle className='text-left'>Cart</SheetTitle>
                 </SheetHeader>
                 <Separator/>
 
@@ -65,8 +65,14 @@ const CartProducts = ({products}: { products: CartProductType[] }) => {
 }
 
 const CartFooter = () => {
-    const {cart} = useCart();
+    const {cart, closeCart} = useCart();
     const {shopSettings} = useShop();
+    const router = useRouter();
+
+    const handleCheckout = () => {
+        closeCart();
+        router.push(PATHS.CHECKOUT);
+    }
 
     return (
         <div>
@@ -78,9 +84,7 @@ const CartFooter = () => {
             </div>
 
             <div>
-                <Link href={PATHS.CHECKOUT}>
-                    <Button className='uppercase w-full rounded-none h-12'>Checkout</Button>
-                </Link>
+                <Button onClick={handleCheckout} className='uppercase w-full rounded-none h-12'>Checkout</Button>
             </div>
         </div>
     )
@@ -88,7 +92,7 @@ const CartFooter = () => {
 
 const CartProductCard = ({product, index}: { product: CartProductType, index: number }) => {
     return (
-        <div className={`flex gap-2 w-full ${index % 2 !== 0 ? 'bg-stone-100' : 'bg-transparent'}`}>
+        <div className={`flex gap-0 md:gap-2 w-full ${index % 2 !== 0 ? 'bg-stone-100' : 'bg-transparent'}`}>
             <div>
                 <Image
                     src={product.merchandise.product.images[0].url}
@@ -98,11 +102,13 @@ const CartProductCard = ({product, index}: { product: CartProductType, index: nu
                 />
             </div>
 
-            <div className='flex flex-col gap-1 p-4 w-full'>
-                <p>{product.merchandise.product.title}</p>
-                <p>{product.merchandise.selectedOptions.map((option) => option.value).join(', ')}</p>
-                <p>{product.cost.totalAmount.currencyCode} {Number(product.cost.totalAmount.amount).toFixed(2)}</p>
-                <p>Qty {product.quantity}</p>
+            <div className='flex flex-col justify-between p-4 w-full'>
+                <div className='flex flex-col gap-1'>
+                    <p>{product.merchandise.product.title}</p>
+                    <p>{product.merchandise.selectedOptions.map((option) => option.value).join(', ')}</p>
+                    <p>{product.cost.totalAmount.currencyCode} {Number(product.cost.totalAmount.amount).toFixed(2)}</p>
+                    <p>Qty {product.quantity}</p>
+                </div>
 
                 <RemoveItemButton variantId={product.id}/>
             </div>
