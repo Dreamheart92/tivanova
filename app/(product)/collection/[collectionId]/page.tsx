@@ -22,7 +22,7 @@ const CollectionWrapper = async ({collectionId}: { collectionId: string }) => {
                         alt={collection.title}
                         width={1920}
                         height={700}
-                        className='h-[700px] object-cover'
+                        className='object-cover aspect-[1200/500]'
                     />
 
                     <div className='text-center py-4'>
@@ -31,7 +31,7 @@ const CollectionWrapper = async ({collectionId}: { collectionId: string }) => {
                     </div>
                 </div>
 
-                <div className='max-w-[70%] mx-auto'>
+                <div className='md:max-w-[70%] mx-auto'>
                     <ProductsGrid cols={2}>
                         {collection.products.map((product) => (
                             <ProductCard key={product.id} product={product} maxHeight={750} width={1000}/>
