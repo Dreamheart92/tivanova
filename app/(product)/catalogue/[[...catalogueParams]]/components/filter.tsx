@@ -4,7 +4,7 @@ import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/
 import {ChevronDown} from "lucide-react";
 import {Checkbox} from "@/components/ui/checkbox";
 import {cva} from "class-variance-authority";
-import useQueryParams from "@/lib/hooks/useSearch";
+import useQueryParams from "@/hooks/useSearch";
 import {useSearchParams} from "next/navigation";
 import {FilterOptionType, FilterType} from "@/lib/definitions/definitions";
 
