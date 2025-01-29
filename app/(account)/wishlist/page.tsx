@@ -7,29 +7,7 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
 import {FeaturedProductType} from "@/lib/definitions/product.definitions";
-
-const WishlistCard = ({product}: { product: FeaturedProductType }) => {
-    const {updateWishlist} = useWishlist();
-
-    const removeItemFromWishlist = async () => {
-        updateWishlist('remove', product);
-    }
-
-    return (
-        <div className='flex flex-col basis-[calc(100%/4-1em)] gap-4'>
-            <ProductCard product={product}/>
-            <form className=''>
-                <Button
-                    variant='secondary'
-                    formAction={removeItemFromWishlist}
-                    className='w-full'
-                >
-                    Remove from wishlist
-                </Button>
-            </form>
-        </div>
-    )
-}
+import WishlistCard from "@/components/wishlist-card";
 
 const EmptyWishlist = () => {
     return (
@@ -50,11 +28,18 @@ const WishlistItems = ({wishlist}: { wishlist: FeaturedProductType[] }) => {
     return (
         <>
             <div className='py-4'>
-                <h2>Explore Your Saved Favorites Below</h2>
+                <h2 className='text-2xl'>Explore Your Saved Favorites Below</h2>
             </div>
-            <div className='flex flex-wrap gap-4'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
                 {wishlist.map((product) => (
-                    <WishlistCard key={product.id} product={product}/>
+                    <WishlistCard
+                        key={product.id}
+                        product={product}
+                        size={{
+                            width: 400,
+                            height: 300
+                        }}
+                    />
                 ))}
             </div>
         </>
