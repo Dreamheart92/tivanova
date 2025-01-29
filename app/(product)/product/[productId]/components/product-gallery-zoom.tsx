@@ -28,7 +28,7 @@ export default function ProductGalleryZoom({images, open, onClose, selectedImage
                 <VisuallyHidden>Product Image Gallery</VisuallyHidden>
             </DialogTitle>
             <DialogContent
-                className='min-w-full h-full p-0 m-0 border-0 overflow-y-scroll'
+                className='min-w-full h-full p-0 m-0 border-0 overflow-y-scroll overflow-x-hidden'
                 style={{borderRadius: 'unset'}}
             >
                 <div className='w-full h-full'>
