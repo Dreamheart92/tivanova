@@ -15,15 +15,11 @@ export default function Hero({title, caption}: HeroProps) {
                         media="(max-width: 768px)"
                         srcSet="/mobile-banner.jpg"
                     />
+
                     <img
                         src="/banner.png"
                         alt="Banner"
-                        className='max-h-[70em] xl:max-h-[52em]'
-                        style={{
-                            objectFit: 'cover',
-                            width: '100%',
-                            filter: 'brightness(90%)',
-                        }}
+                        className='object-cover brightness-90 aspect-[500/600] sm:aspect-[500/500] md:aspect-[1200/550]'
                     />
                 </picture>
 
