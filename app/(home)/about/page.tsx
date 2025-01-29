@@ -83,7 +83,7 @@ const settings = {
 
 export default function About() {
     return (
-        <div className='max-w-[1200px] mx-auto py-12 flex flex-col gap-12'>
+        <div className='max-w-[1200px] mx-auto py-12 flex flex-col gap-4 md:gap-12 p-4 text-sm md:text-base'>
             <StoreCaption/>
             <OurStory/>
             <OurAchievements/>
@@ -98,7 +98,7 @@ const StoreCaption = () => {
         <div className='text-center'>
             <h1 className='text-[2.2em]'>{settings.storeCaption.heading}</h1>
             <h2>{settings.storeCaption.subHeading}</h2>
-            <p className='max-w-[45%] mx-auto pt-2'>{settings.storeCaption.content}</p>
+            <p className='md:max-w-[45%] mx-auto pt-2'>{settings.storeCaption.content}</p>
             <div className='pt-8'>
                 <AboutUsBanner/>
             </div>
@@ -160,7 +160,7 @@ const AchievementCard = ({achievement}: { achievement: { heading: string, subHea
 
 const OurAchievements = () => {
     return (
-        <div className='flex gap-10 justify-between pt-12 border-t border-stone-200'>
+        <div className='flex flex-wrap md:flex-nowrap gap-10 justify-between pt-4 md:pt-12 border-t border-stone-200'>
             {settings.ourAchievements.map((achievement, index) => (
                 <AchievementCard achievement={achievement} key={index}/>
             ))}
@@ -170,7 +170,13 @@ const OurAchievements = () => {
 
 const StoreImage = ({image}: { image: string }) => {
     return (
-        <Image src={image} alt='Physical store image' width={600} height={530} className='object-cover'/>
+        <Image
+            src={image}
+            alt='Physical store image'
+            width={1000}
+            height={500}
+            className='object-cover aspect-[700/500]'
+        />
     )
 }
 
@@ -178,7 +184,7 @@ const OurStores = () => {
     return (
         <div className='pt-4'>
             <h2 className='text-stone-900 font-bold pb-4'>Our Stores</h2>
-            <div className='flex gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 {settings.ourStores.map((storeImage: string, index) => (
                     <StoreImage image={storeImage} key={index}/>
                 ))}
@@ -189,7 +195,7 @@ const OurStores = () => {
 
 const TeamMemberCard = ({details}: { details: { name: string, position: string, content: string, image: string } }) => {
     return (
-        <div className='w-[200px]'>
+        <div className='flex flex-col items-center justify-center'>
             <Image
                 src={details.image}
                 alt={details.name}
@@ -208,13 +214,14 @@ const TeamMemberCard = ({details}: { details: { name: string, position: string, 
 const OurTeam = () => {
     return (
         <div>
-            <div className='text-center border-b border-stone-200 mb-12 pb-4'>
-                <h1 className='text-[5em] font-bold'>
+            <div className='text-center border-b border-stone-200 mb-6 md:mb-12 pb-4'>
+                <h1 className='text-2xl md:text-[5em] md:pb-6 font-bold'>
                     Meet Our Team
                 </h1>
                 <h2 className='font-bold'>The people behind the brand.</h2>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20'>
+
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 md:gap-20 place-items-center'>
                 {settings.meetOurTeam.map((teamMember, index) => (
                     <TeamMemberCard details={teamMember} key={index}/>
                 ))}
