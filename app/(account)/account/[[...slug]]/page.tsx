@@ -3,8 +3,9 @@ import {notFound} from "next/navigation";
 import Orders from "@/app/(account)/account/[[...slug]]/components/orders/orders";
 import Settings from "@/app/(account)/account/[[...slug]]/components/settings/settings";
 import {fetchCustomerOrders} from "@/lib/api/order.api";
-
-// TODO: Handle auth guard
+import {headers} from "next/headers";
+import {userAgent} from "next/server";
+import Dashboard from "@/app/(account)/account/[[...slug]]/components/dashboard";
 
 type AccountProps = {
     params: Promise<{ slug: string }>;
@@ -18,15 +19,19 @@ export default async function Account({params}: AccountProps) {
         notFound();
     }
 
+    const orders = await fetchCustomerOrders(session.token);
+
     switch (slug) {
         case 'settings' : {
             return <Settings customer={session}/>
         }
-        default: {
-            const orders = await fetchCustomerOrders(session.token);
+        case 'orders' : {
             return (
                 <Orders orders={orders}/>
             )
+        }
+        default: {
+            return <Dashboard lastOrder={orders[0]}/>
         }
     }
 }
