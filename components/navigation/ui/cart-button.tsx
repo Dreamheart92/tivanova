@@ -13,7 +13,7 @@ export default function CartButton({iconWidth}: CartButtonProps) {
 
     return (
         <NavigationMenuItem>
-            <ShoppingBag width={iconWidth} onClick={openCart} cursor='pointer'/>
+            <ShoppingBag className='w-5 h-5 lg:w-4 lg:h-4' onClick={openCart} cursor='pointer'/>
         </NavigationMenuItem>
     )
 }
