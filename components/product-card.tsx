@@ -68,9 +68,9 @@ const ProductCardImage = ({images, alt, size}: ProductCardImageProps) => {
                 alt={alt}
                 width={size.width}
                 height={size.height}
-                className='transition-opacity 0.3s ease-in object-cover object-center'
+                className='lg:transition-opacity lg:0.3s lg:ease-in aspect-[235/352] object-cover'
                 style={{
-                    maxHeight: `${size.maxHeight}px`
+                    maxHeight: `${size.maxHeight}px`,
                 }}
             />
 
@@ -78,7 +78,7 @@ const ProductCardImage = ({images, alt, size}: ProductCardImageProps) => {
                 src={images[1].url}
                 alt={alt}
                 fill
-                className={clsx('object-cover opacity-0 transition-opacity duration-500', {
+                className={clsx('object-cover hidden lg:block opacity-0 transition-opacity duration-500', {
                     'opacity-100': hovered,
                 })}
             />
