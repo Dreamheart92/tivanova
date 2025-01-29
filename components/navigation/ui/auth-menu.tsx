@@ -21,7 +21,7 @@ const menuSettings = {
         label: 'My Account'
     },
     myPurchases: {
-        href: PATHS.LOGIN,
+        href: PATHS.ORDERS,
         label: 'My Purchases'
     },
     help: {
@@ -41,9 +41,11 @@ export default function AuthMenu({iconWidth}: { iconWidth: number }) {
         <NavigationMenuItem className='' onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
             <DropdownMenu open={open} modal={false}>
                 <DropdownMenuTrigger className='flex items-center border-none outline-none'>
-                    <UserRound width={iconWidth} cursor='pointer'/>
+                    <Link href={PATHS.ACCOUNT}>
+                        <UserRound className='w-5 h-5 lg:w-4 lg:h-4' cursor='pointer'/>
+                    </Link>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className='w-56 mt-3'>
+                <DropdownMenuContent className='w-56 mt-3 hidden lg:block'>
                     <DropdownMenuLabel>Welcome, Toni!</DropdownMenuLabel>
                     <DropdownMenuSeparator/>
                     <DropdownMenuGroup>
