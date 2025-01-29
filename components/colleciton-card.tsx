@@ -34,8 +34,8 @@ const CollectionCardImage = ({imageUrl, alt}: CollectionCardImageProps) => {
                 src={imageUrl}
                 alt={alt}
                 width={1000}
-                height={900}
-                className='max-h-[650px] object-cover'
+                height={500}
+                className='max-h-[650px] object-cover aspect-[300/300] sm:aspect-[300/500] lg:aspect-[300/500]'
             />
         </div>
     )
@@ -48,7 +48,7 @@ type CollectionCardDetailsProps = {
 
 const CollectionCardDetails = ({title, description}: CollectionCardDetailsProps) => {
     return (
-        <div className='text-center py-4'>
+        <div className='text-center py-2 text-sm lg:text-base'>
             <h4 className='font-bold uppercase'>{title}</h4>
             <p className='max-w-[90%] mx-auto'>
                 {description}
