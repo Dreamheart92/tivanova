@@ -9,6 +9,7 @@ import {extractShopifyIdFromGID} from "@/lib/utils/shopify.utils";
 import {ImageType} from "@/lib/definitions/definitions";
 import {clsx} from "clsx";
 import {CostType} from "@/lib/definitions/cart.definitions";
+import {cva} from "class-variance-authority";
 
 type ProductCardProps = {
     product: FeaturedProductType;
@@ -21,24 +22,26 @@ export default function ProductCard({product, width = 500, height = 500, maxHeig
 
     return (
         <div
-            className="relative text-[1.6em] md:text-[1.2em] lg:text-[1em] cursor-pointer">
+            className="relative text-sm lg:text-base cursor-pointer">
             <Link href={PATHS.PRODUCT_DETAILS(extractShopifyIdFromGID(product.id))}>
-                <ProductCardImage
-                    images={product.images.slice(0, 2)}
-                    alt={product.title}
-                    size={{
-                        width,
-                        height,
-                        maxHeight,
-                    }}
-                />
-                <ProductCardDetails
-                    details={{
-                        vendor: product.vendor,
-                        title: product.title,
-                        cost: product.priceRange.minVariantPrice,
-                    }}
-                />
+                <div>
+                    <ProductCardImage
+                        images={product.images.slice(0, 2)}
+                        alt={product.title}
+                        size={{
+                            width,
+                            height,
+                            maxHeight,
+                        }}
+                    />
+                    <ProductCardDetails
+                        details={{
+                            vendor: product.vendor,
+                            title: product.title,
+                            cost: product.priceRange.minVariantPrice,
+                        }}
+                    />
+                </div>
             </Link>
         </div>
     )
@@ -52,9 +55,18 @@ type ProductCardImageProps = {
         height: number;
         maxHeight: number;
     }
+    searchProduct?: boolean;
 }
 
-const ProductCardImage = ({images, alt, size}: ProductCardImageProps) => {
+const productCartImageStyles = cva('lg:transition-opacity lg:0.3s lg:ease-in aspect-[235/352] object-cover', {
+    variants: {
+        types: {
+            searchProduct: 'aspect-[200/300] lg:aspect-[235/352] w-[150px] lg:w-full'
+        },
+    },
+})
+
+export const ProductCardImage = ({images, alt, size, searchProduct}: ProductCardImageProps) => {
     const [hovered, setIsHovered] = useState(false);
 
     return (
@@ -68,7 +80,9 @@ const ProductCardImage = ({images, alt, size}: ProductCardImageProps) => {
                 alt={alt}
                 width={size.width}
                 height={size.height}
-                className='lg:transition-opacity lg:0.3s lg:ease-in aspect-[235/352] object-cover'
+                className={productCartImageStyles({
+                    types: searchProduct ? 'searchProduct' : undefined,
+                })}
                 style={{
                     maxHeight: `${size.maxHeight}px`,
                 }}
@@ -94,7 +108,7 @@ type ProductCardDetailsProps = {
     }
 }
 
-const ProductCardDetails = ({details}: ProductCardDetailsProps) => {
+export const ProductCardDetails = ({details}: ProductCardDetailsProps) => {
     return (
         <div className='py-2 px-1 lg:p-0'>
             <h4 className='uppercase font-bold'>{details.vendor}</h4>
