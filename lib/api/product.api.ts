@@ -1,3 +1,5 @@
+'use server';
+
 import {
     CollectionDetailsType,
     CollectionType,
@@ -10,13 +12,18 @@ import {
     fetchLatestCollectionsQuery,
     fetchLatestProductsQuery,
     fetchProductByIdQuery,
-    filtersQuery
+    filtersQuery, searchQuery
 } from "@/lib/api/queries/product";
 import {FilterType} from "@/lib/definitions/definitions";
-import {clientFetcher} from "@/lib/api/shopify";
+import {client, clientFetcher} from "@/lib/api/shopify";
 
 import {applyCountryIsoToQuery} from "@/lib/utils/server/shopify.server-utils";
-import {reshapeCollection, reshapeFeaturedProducts, reshapeProduct} from "@/lib/utils/shopify.utils";
+import {
+    removeEdgesAndNodes,
+    reshapeCollection,
+    reshapeFeaturedProducts,
+    reshapeProduct, reshapeSearchResults
+} from "@/lib/utils/shopify.utils";
 import {QUERY} from "@/lib/constants/query";
 
 export const fetchLatestProducts = async (): Promise<FeaturedProductType[]> => {
@@ -80,4 +87,16 @@ export const fetchCollection = async (collectionId: string): Promise<CollectionT
     })
 
     return reshapeCollection(data.collection);
+}
+
+export const search = async (search: string, limit = 250): Promise<{
+    result: FeaturedProductType[],
+    count: number
+}> => {
+    const query = searchQuery.replace(QUERY.FIRST_LIMIT_KEY, String(limit));
+    const data = await clientFetcher(query, {
+        query: search,
+    });
+
+    return reshapeSearchResults(data);
 }
