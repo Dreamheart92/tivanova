@@ -1,7 +1,7 @@
 import ContentContainer from "@/components/ui/content-container";
-import MainMenu from "@/components/navigation/ui/main-menu";
-import Logo from "@/components/navigation/ui/logo";
-import AccountMenu from "@/components/navigation/ui/account-menu";
+import MainMenu from "@/components/navigation/components/main-menu";
+import Logo from "@/components/navigation/components/logo";
+import AccountMenu from "@/components/navigation/components/account-menu";
 
 type WrapperProps = {
     basis: string;
