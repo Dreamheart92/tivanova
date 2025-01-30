@@ -2,7 +2,7 @@
 
 import {Dialog, DialogContent, DialogTitle} from "@/components/ui/dialog";
 import {VisuallyHidden} from "@radix-ui/react-visually-hidden";
-import {useEffect, useState} from "react";
+import {forwardRef, useEffect, useState} from "react";
 import Image from "next/image";
 import {ImageType} from "@/lib/definitions/definitions";
 
@@ -28,10 +28,11 @@ export default function ProductGalleryZoom({images, open, onClose, selectedImage
                 <VisuallyHidden>Product Image Gallery</VisuallyHidden>
             </DialogTitle>
             <DialogContent
-                className='min-w-full h-full p-0 m-0 border-0 overflow-y-scroll overflow-x-hidden'
+                className='min-w-full h-full p-0 m-0 border-0'
                 style={{borderRadius: 'unset'}}
+                onOpenAutoFocus={(event) => event.preventDefault()}
             >
-                <div className='w-full h-full'>
+                <div className='w-full h-full overflow-y-auto overflow-x-hidden'>
                     {selectedImage !== null && (
                         <Image
                             src={images[selectedImage].url}
@@ -39,25 +40,26 @@ export default function ProductGalleryZoom({images, open, onClose, selectedImage
                             width={1920}
                             height={1000}
                             quality={100}
-                            className='w-full min-h-screen object-cover object-center'
+                            className='w-full object-cover object-center'
                         />
                     )}
+
+                    <div
+                        className='fixed bottom-0 flex md:block gap-4 md:left-8 md:top-1/2 animate-slideInFromBottom md:animate-slideInFromLeft w-fit'>
+                        {images.map((image, index) => (
+                            <Image
+                                key={image.url}
+                                src={image.url}
+                                alt='Product Image'
+                                width={70}
+                                height={50}
+                                className={`my-4 ${index === selectedImage ? 'opacity-100' : 'opacity-50'} cursor-pointer`}
+                                onMouseEnter={() => setSelectedImage(index)}
+                            />
+                        ))}
+                    </div>
                 </div>
 
-                <div
-                    className='absolute bottom-0 flex justify-center md:block gap-4 w-full md:left-8 md:top-1/2 animate-slideInFromBottom md:animate-slideInFromLeft'>
-                    {images.map((image, index) => (
-                        <Image
-                            key={image.url}
-                            src={image.url}
-                            alt='Product Image'
-                            width={70}
-                            height={50}
-                            className={`my-4 ${index === selectedImage ? 'opacity-100' : 'opacity-50'} cursor-pointer`}
-                            onMouseEnter={() => setSelectedImage(index)}
-                        />
-                    ))}
-                </div>
             </DialogContent>
         </Dialog>
     )
