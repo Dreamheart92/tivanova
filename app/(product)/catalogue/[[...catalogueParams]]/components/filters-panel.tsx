@@ -23,10 +23,10 @@ type FiltersPanelProps = {
 export default function FiltersPanel({toggleFiltersLabel, clearQueryButtonLabel, filters}: FiltersPanelProps) {
     return (
         <Sheet>
-            <SheetTrigger className='pb-4'>FILTERS</SheetTrigger>
-            <SheetContent className='overflow-y-scroll flex flex-col'>
+            <SheetTrigger className='text-sm lg:text-base pl-2 lg:pl-0 pb-4'>FILTERS</SheetTrigger>
+            <SheetContent className='overflow-y-scroll flex flex-col text-sm lg:text-base'>
                 <SheetHeader className='basis-1/12'>
-                    <SheetTitle>{toggleFiltersLabel}</SheetTitle>
+                    <SheetTitle className='text-left'>{toggleFiltersLabel}</SheetTitle>
                 </SheetHeader>
                 <Filters filters={filters}/>
                 <ClearFiltersButton label={clearQueryButtonLabel}/>
