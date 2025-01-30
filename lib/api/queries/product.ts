@@ -113,3 +113,19 @@ query MyQuery($collectionId: ID!) @inContext(country: ${QUERY.COUNTRY_ISO_REPLAC
 }
 ${featuredProductFragment}
 `
+
+export const searchQuery = `
+ query MyQuery ($query: String!) {
+  search(query: $query, types: PRODUCT, first: ${QUERY.FIRST_LIMIT_KEY}) {
+    totalCount
+    edges {
+      node {
+        ... on Product {
+          ...featuredProduct
+        }
+      }
+    }
+  }
+}
+${featuredProductFragment}
+`
