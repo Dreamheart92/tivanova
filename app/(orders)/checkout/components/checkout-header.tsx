@@ -1,6 +1,6 @@
 'use client';
 
-import Logo from "@/components/navigation/ui/logo";
+import Logo from "@/components/navigation/components/logo";
 import {
     Breadcrumb,
     BreadcrumbItem,
