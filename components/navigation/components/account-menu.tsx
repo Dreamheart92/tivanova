@@ -2,11 +2,12 @@ import {
     NavigationMenu,
     NavigationMenuItem,
 } from "@/components/ui/navigation-menu";
-import {Heart, Search, UserRound} from "lucide-react";
+import {Heart, UserRound} from "lucide-react";
 import Link from "next/link";
 import {PATHS} from "@/lib/constants/paths";
-import AuthMenu from "@/components/navigation/ui/auth-menu";
-import CartButton from "@/components/navigation/ui/cart-button";
+import AuthMenu from "@/components/navigation/components/auth-menu";
+import CartButton from "@/components/navigation/components/cart-button";
+import Search from "@/components/search";
 
 const ICON_WIDTH = 16;
 
@@ -33,7 +34,7 @@ export default function AccountMenu({isAuth}: { isAuth: boolean }) {
         <NavigationMenu className="gap-3">
             <IconWrapper Icon={Heart} href={PATHS.WISHLIST}/>
             {accountMenu}
-            <IconWrapper Icon={Search} href={PATHS.LOGIN}/>
+            <Search/>
             <CartButton iconWidth={ICON_WIDTH}/>
         </NavigationMenu>
     )
