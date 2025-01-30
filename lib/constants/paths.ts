@@ -15,5 +15,6 @@ export const PATHS = {
     ORDERS: '/account/orders',
     ACCOUNT_NAVIGATION: {
         SETTINGS: '/account/settings',
-    }
+    },
+    SEARCH: '/search',
 }
