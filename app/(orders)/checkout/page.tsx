@@ -5,7 +5,7 @@ import CheckoutHeader from "@/app/(orders)/checkout/components/checkout-header";
 import OrderSummary from "@/app/(orders)/checkout/components/order-summary";
 import {useCheckout} from "@/lib/context/checkout";
 import OrderConfirmation from "@/app/(orders)/checkout/components/order-confirmation";
-import Logo from "@/components/navigation/ui/logo";
+import Logo from "@/components/navigation/components/logo";
 
 export default function Checkout() {
     const {orderConfirmation} = useCheckout();
