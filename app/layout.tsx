@@ -13,6 +13,7 @@ import {getWishlistId} from "@/lib/actions/wishlist.actions";
 import {fetchAvailableShippingCountries} from "@/lib/api/order.api";
 import ShopProvider from "@/lib/context/shop";
 import {getCountryIso} from "@/lib/utils/server/customer.server-utils";
+import {search} from "@/lib/api/product.api";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
