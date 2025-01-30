@@ -17,13 +17,18 @@ const CollectionWrapper = async ({collectionId}: { collectionId: string }) => {
         return (
             <ContentContainer>
                 <div>
-                    <Image
-                        src={collection.backdropImage.previewImage.url}
-                        alt={collection.title}
-                        width={1920}
-                        height={700}
-                        className='object-cover aspect-[1200/500]'
-                    />
+                    <picture>
+                        <source
+                            media="(max-width: 768px)"
+                            srcSet={collection.image.url}
+                        />
+
+                        <img
+                            src={collection.backdropImage.previewImage.url}
+                            alt="Banner"
+                            className='object-cover brightness-90 aspect-[500/500] md:aspect-[1200/550]'
+                        />
+                    </picture>
 
                     <div className='text-center py-4'>
                         <h1>{collection.title}</h1>
