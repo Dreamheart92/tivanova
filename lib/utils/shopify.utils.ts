@@ -69,3 +69,11 @@ export const hasShopifyUserError = (data: any) => {
 
     return hasError ? data : false;
 }
+
+export const reshapeSearchResults = (data: any) => ({
+    result: removeEdgesAndNodes(data.search).map((product: any) => ({
+        ...product,
+        images: removeEdgesAndNodes(product.images),
+    })),
+    count: data.search.totalCount,
+})
